@@ -1,7 +1,10 @@
 var path = 'static/data/data_cleaned.csv'
 
 d3.csv(path).then(function(data) {
-    console.log(data['top genre']);
+    data.forEach(function(datum) {
+        console.log(datum.genre);
+    })
+    
     // var trace1 = {
     //     x: [1, 2, 3, 4],
     //     y: [10, 11, 12, 13],
