@@ -1,7 +1,7 @@
 var path = 'static/data/data_cleaned.csv'
 
 d3.csv(path).then(function(data) {
-    
+    // changing types
     data.forEach(function(d) {
         d.genre_num = +d.genre_num;
         d.bpm = d.bpm;
@@ -15,15 +15,16 @@ d3.csv(path).then(function(data) {
         d.spch = +d.spch;
         d.pop = +d.pop;
     });
-
+    // filtering for year
     var data_year_filter = data.filter(function(d) {
         return d.year == 2010;
     });
-    
-    data_year_filter.forEach(function(datum) {
-        console.log(datum.pop);
-    });
+    // printing popularity for each point
+    // data_year_filter.forEach(function(datum) {
+    //     console.log(datum.pop);
+    // });
 
+    // deriving variables
     var genre_nums = data_year_filter.map(d => d.genre_num);
     var genre_name = data_year_filter.map(d => d.genre);
     var title = data_year_filter.map(d => d.title);
@@ -32,6 +33,7 @@ d3.csv(path).then(function(data) {
     var decibels_manip = decibels.map(d => d + Math.random)
     var valence = data_year_filter.map(d => d.val);
     
+    // creating the plot: colour is determined by genre, size is determined by popularity
     var traceA = {
         type: "scatter",
         mode: "markers",
@@ -62,6 +64,7 @@ d3.csv(path).then(function(data) {
             title: 'valence'
         }
       };
-       
+      
+      // appending to html page
       Plotly.newPlot('bubble', data, layout);
 });
