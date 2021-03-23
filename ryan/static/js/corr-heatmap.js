@@ -40,7 +40,7 @@ d3.csv('data/corr_heatmap_vals.csv').then(data => {
   // Build color scale
   var myColor = d3.scaleSequential()
     .interpolator(d3.interpolateInferno)
-    .domain([1,100]);
+    .domain([0,1]);
 
   // create a tooltip
   var tooltip = d3.select("#heatmap-corr")
