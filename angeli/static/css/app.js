@@ -1,3 +1,8 @@
+// Graph Ideas
+// DB scatter plot or line graph :  
+// Genre normalized stacked area chart : https://plotly.com/javascript/filled-area-plots/
+
+
 // Copy of Sarah's app.js
 var path = '../data/dance.csv'
 
