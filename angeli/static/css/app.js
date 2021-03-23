@@ -40,13 +40,44 @@ var data = [
     {
       x: year,
       y: dance,
-      name: 'Danceability By Year',
       type: 'bar'
     }
   ];
   
-  Plotly.newPlot('dance', data);
-
+  var layout = {
+    title: {
+      text:'Danceability By Year',
+      font: {
+        family: 'Courier New, monospace',
+        size: 24
+      },
+      xref: 'paper',
+      x: 0.05,
+    },
+    xaxis: {
+      title: {
+        text: 'Year',
+        font: {
+          family: 'Courier New, monospace',
+          size: 18,
+          color: '#7f7f7f'
+        }
+      },
+    },
+    yaxis: {
+      title: {
+        text: 'Daceability Level',
+        font: {
+          family: 'Courier New, monospace',
+          size: 18,
+          color: '#7f7f7f'
+        }
+      }
+    }
+  };
+  
+  Plotly.newPlot('dance', data, layout);
+  
 
 });
 
