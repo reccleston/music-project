@@ -1,6 +1,33 @@
+// funct to fill dropdowns
+function dropdownFill(year_data, columns) {
+    // subsetting the col names
+    var cols_for_dd = columns.slice(6, columns.length+1);
+
+    // appending to dropdowns
+    // defining dropdown variables
+    var year_dropdown = d3.select('#year-dropdown').select('.dropdown-menu');
+    var x_dropdown = d3.select('#x-axis-dropdown').select('.dropdown-menu');
+    var y_dropdown = d3.select('#y-axis-dropdown').select('.dropdown-menu');
+    // appending years
+    year_data.forEach(year => {
+        year_dropdown.append('a').attr('class', 'dropdown-item')
+            .attr('href', '#').text(year);
+    });
+    // appending same data to both x and y dropdowns
+    cols_for_dd.forEach(col => {
+        x_dropdown.append('a').attr('class', 'dropdown-item')
+            .attr('href', '#').text(col);
+        y_dropdown.append('a').attr('class', 'dropdown-item')
+            .attr('href', '#').text(col);
+    });
+
+};
+
+
 var path = 'static/data/data_cleaned.csv'
 
 d3.csv(path).then(function(data) {
+    // console.log(data.columns);
     // changing types
     data.forEach(function(d) {
         d.genre_num = +d.genre_num;
@@ -15,14 +42,15 @@ d3.csv(path).then(function(data) {
         d.spch = +d.spch;
         d.pop = +d.pop;
     });
+    // sending to dropdown fill funct
+    var columns = data.columns;
+    var year_data = [...new Set(data.map(d => d.year))];
+    dropdownFill(year_data, columns);
+
     // filtering for year
     var data_year_filter = data.filter(function(d) {
         return d.year == 2010;
     });
-    // printing popularity for each point
-    // data_year_filter.forEach(function(datum) {
-    //     console.log(datum.pop);
-    // });
 
     // deriving variables
     var genre_nums = data_year_filter.map(d => d.genre_num);
@@ -35,8 +63,8 @@ d3.csv(path).then(function(data) {
     
     // creating the plot: colour is determined by genre, size is determined by popularity
     var traceA = {
-        type: "scatter",
-        mode: "markers",
+        type: 'scatter',
+        mode: 'markers',
         x: decibels,
         y: valence,
         text: data_year_filter.map(function(d) {
@@ -56,7 +84,7 @@ d3.csv(path).then(function(data) {
       var data = [traceA];
        
       var layout = {
-        title: "Decibels vs. Valance in 2010",
+        title: 'Decibels vs. Valance in 2010',
         xaxis: {
             title: 'decibels'
         },
