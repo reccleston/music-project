@@ -1,6 +1,6 @@
 function makeResponsive() {
     // making chart width and height dependant on page width/height
-    var chartWidth = window.innerWidth * 7/8;
+    var chartWidth = window.innerWidth * 5/6;
     var chartHeight = 800;
 
     // funct to fill dropdowns
@@ -36,6 +36,7 @@ function makeResponsive() {
         });  
         // other graph factors
         var genre_nums = data_year_filter.map(d => d.genre_num);
+        var genre = data_year_filter.map(d => d.genre);
         var pop = data_year_filter.map(d => d.pop);
         
         // deriving x_axis and y_axis
@@ -46,20 +47,24 @@ function makeResponsive() {
         var traceA = {
             type: 'scatter',
             mode: 'markers',
+            showlegend: true,
             x: x_axis,
             y: y_axis,
             text: data_year_filter.map(function(d) {
-                return `Track Name: ${d.title}<br>Track Genre: ${d.genre}`
+                return `Track Name: ${d.title}<br>Track Genre: ${d.genre}<br>Track Subgenre: ${d.subgenre}`
             }),
             marker: {
-            color: genre_nums,
-            colorscale: 'Rainbow',
-            cmin: d3.min(genre_nums),
-            cmax: d3.max(genre_nums),
-            size: pop,
-            sizeref: 2,
-            sizemode: 'radius'
-            }
+                color: genre_nums,
+                colorscale: 'Rainbow',
+                cmin: d3.min(genre_nums),
+                cmax: d3.max(genre_nums),
+                size: pop,
+                sizeref: 2,
+                sizemode: 'radius'
+            },
+            transforms: [{ type: "groupby", groups: genre }],
+            hovertemplate:
+                `<b>%{text}</b><br>%{yaxis.title.text}: %{y}<br>%{xaxis.title.text}: %{x}<br><extra></extra>`
         };
         
         var data = [traceA];
@@ -69,6 +74,8 @@ function makeResponsive() {
             width: chartWidth,
             height: chartHeight,
             title: `${x_choice} vs. ${y_choice} in ${year}`,
+            hovermode: 'closest',
+            legend: {orientation: 'v', x: 0.87, y: 0.05},
             xaxis: {
                 title: `${x_choice}`,
                 autotick: false,
@@ -77,7 +84,8 @@ function makeResponsive() {
                 dtick: 4,
                 ticklen: 8,
                 tickwidth: 2,
-                tickcolor: '#000'
+                tickcolor: '#000',
+                zeroline: false
             },
             yaxis: {
                 title: `${y_choice}`,
@@ -87,7 +95,8 @@ function makeResponsive() {
                 dtick: 2,
                 ticklen: 8,
                 tickwidth: 2,
-                tickcolor: '#000'
+                tickcolor: '#000',
+                zeroline: false
             }
         };
         // make responsive to page size
