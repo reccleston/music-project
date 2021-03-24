@@ -1,0 +1,14 @@
+#choice-alert, #year-display, #x-display, #y-display {
+    display: none;
+}
+
+#year-display, #x-display, #y-display {
+    padding-right: 10px;
+}
+
+#selection-choices ul {
+    list-style: none;
+}
+#selection-choices li {
+    display: inline;
+}

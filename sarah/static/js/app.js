@@ -1,7 +1,63 @@
 function makeResponsive() {
-    // making chart width and height dependant on page width/height
+    // making chart width dependant on page width, height as a constant
     var chartWidth = window.innerWidth * 5/6;
-    var chartHeight = 800;
+    var chartHeight = 700;
+
+    // dictionary to hold user choices, with preset arbitrary choices set in for initial display
+    var click_dict = {
+        'year': 2011, 'x': 'bpm', 'y': 'nrgy'
+    };
+    // event handling
+    function yearReact() {
+        d3.event.preventDefault();
+        var chosen_year = d3.select(this).text();   
+        // adding to alert display
+        d3.select('#choice-alert').style('display', 'inline-block');
+        var year_li = d3.select('#year-display')
+        year_li.style('display', 'inline-block');
+        year_li.text(`Year: ${chosen_year}`);
+        // adding to dict for user choices
+        click_dict['year'] = chosen_year;
+    };
+
+    function xReact() {
+        d3.event.preventDefault();
+        var chosen_x = d3.select(this).text();   
+        // adding to alert display
+        d3.select('#choice-alert').style('display', 'inline-block');
+        var x_li = d3.select('#x-display')
+        x_li.style('display', 'inline-block');
+        // x_li.select('a').text(`X-Axis: ${chosen_x}`);
+        x_li.text(`X-Axis: ${chosen_x}`);
+        // adding to dict for user choices
+        click_dict['x'] = chosen_x;
+    };
+
+    function yReact() {
+        d3.event.preventDefault();
+        var chosen_y = d3.select(this).text();   
+        // adding to alert display
+        d3.select('#choice-alert').style('display', 'inline-block');
+        var y_li = d3.select('#y-display')
+        y_li.style('display', 'inline-block');
+        y_li.text(`Y-Axis: ${chosen_y}`);
+        // adding to dict for user choices
+        click_dict['y'] = chosen_y;
+    };
+
+    function triggerChart() {
+        d3.event.preventDefault();
+        // setting up variables for entering into buildChart
+        var new_year = click_dict['year'];
+        var new_x = click_dict['x'];
+        var new_y = click_dict['y'];
+        var data = click_dict['data'];
+        // calling the funct
+        buildChart(new_year, new_x, new_y, data);
+    };
+
+    // event listener for click on button
+    d3.select('#trigger-chart').on('click', triggerChart);
 
     // funct to fill dropdowns
     function dropdownFill(year_data, columns) {
@@ -13,17 +69,23 @@ function makeResponsive() {
         var year_dropdown = d3.select('#year-dropdown').select('.dropdown-menu');
         var x_dropdown = d3.select('#x-axis-dropdown').select('.dropdown-menu');
         var y_dropdown = d3.select('#y-axis-dropdown').select('.dropdown-menu');
+
+        // getting rid of any existing dropdown items
+        year_dropdown.text('');
+        x_dropdown.text('');
+        y_dropdown.text('');
+
         // appending years
         year_data.forEach(year => {
             year_dropdown.append('a').attr('class', 'dropdown-item')
-                .attr('href', '#').text(year);
+                .attr('href', '#').attr('value', `${year}`).text(year).on('click', yearReact);
         });
         // appending same data to both x and y dropdowns
         cols_for_dd.forEach(col => {
             x_dropdown.append('a').attr('class', 'dropdown-item')
-                .attr('href', '#').text(col);
+                .attr('href', '#').attr('value', `${col}`).text(col).on('click', xReact);
             y_dropdown.append('a').attr('class', 'dropdown-item')
-                .attr('href', '#').text(col);
+                .attr('href', '#').attr('value', `${col}`).text(col).on('click', yReact);
         });
 
     };
@@ -51,7 +113,7 @@ function makeResponsive() {
             x: x_axis,
             y: y_axis,
             text: data_year_filter.map(function(d) {
-                return `Track Name: ${d.title}<br>Track Genre: ${d.genre}<br>Track Subgenre: ${d.subgenre}`
+                return `Track Name: ${d.title}<br>Artist: ${d.artist}<br>Track Genre: ${d.genre}<br>Track Subgenre: ${d.subgenre}`
             }),
             marker: {
                 color: genre_nums,
@@ -123,16 +185,20 @@ function makeResponsive() {
             d.spch = +d.spch;
             d.pop = +d.pop;
         });
+
+        click_dict['data'] = data;
         // sending to dropdown fill funct
         var columns = data.columns;
         var year_data = [...new Set(data.map(d => d.year))];
         dropdownFill(year_data, columns);
 
-        var year = 2011;
-        var x_choice = 'bpm';
-        var y_choice = 'nrgy';
+        // using dict to set first initial display
+        var year = click_dict['year'];
+        var x_choice = click_dict['x'];
+        var y_choice = click_dict['y'];
         buildChart(year, x_choice, y_choice, data);
     })
+    
 };
 makeResponsive();
 // event listener for resizing graphs
