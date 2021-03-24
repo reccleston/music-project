@@ -14,7 +14,8 @@ d3.csv('data/corr_heatmap_vals.csv').then(data => {
   var myGroups = d3.map(data, function(d){return d.feat1;}).keys()
   var myVars = d3.map(data, function(d){return d.feat2;}).keys()
 
-  // Build X scales and axis:
+  //Axes 
+  // X
   var x = d3.scaleBand()
     .range([ 0, width ])
     .domain(myGroups)
@@ -26,7 +27,7 @@ d3.csv('data/corr_heatmap_vals.csv').then(data => {
     .call(d3.axisBottom(x).tickSize(0))
     .select(".domain").remove();
 
-  // Build Y scales and axis:
+  // Y
   var y = d3.scaleBand()
     .range([ height, 0 ])
     .domain(myVars)
@@ -37,12 +38,12 @@ d3.csv('data/corr_heatmap_vals.csv').then(data => {
     .call(d3.axisLeft(y).tickSize(0))
     .select(".domain").remove();
 
-  // Build color scale
+  // Color scale
   var myColor = d3.scaleSequential()
     .interpolator(d3.interpolateInferno)
-    .domain([0,1]);
+    .domain([-1,1]);
 
-  // create a tooltip
+  // Tooltip
   var tooltip = d3.select("#heatmap-corr")
     .append("div")
     .style("opacity", 0)
@@ -64,7 +65,7 @@ d3.csv('data/corr_heatmap_vals.csv').then(data => {
   }
   var mousemove = function(d) {
     tooltip
-      .html("The exact value of<br>this cell is: " + d.val)
+      .html(`The correlation between <b>${d.feat1}</b> and <b>${d.feat2}</b> is: ${d.val}`)
       .style("left", (d3.mouse(this)[0]+70) + "px")
       .style("top", (d3.mouse(this)[1]) + "px")
   }
@@ -102,7 +103,7 @@ svg.append("text")
         .attr("y", -50)
         .attr("text-anchor", "left")
         .style("font-size", "22px")
-        .text("Overview ");
+        .text("Correlation Heatmap for Top 10 Songs over time");
 
 // Add subtitle to graph
 svg.append("text")
@@ -112,12 +113,6 @@ svg.append("text")
         .style("font-size", "14px")
         .style("fill", "grey")
         .style("max-width", 400)
-        .text("of the music data");
+        .text("with values ranging from -1 to 1, 1 signifying a closer relation");
 
-
-
-
-
-    console.log(vals);
-        
 });
