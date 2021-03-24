@@ -47,6 +47,8 @@ function makeResponsive() {
 
     function triggerChart() {
         d3.event.preventDefault();
+        // makes choice alert disappear again
+        d3.select('#choice-alert').style('display', 'none');
         // setting up variables for entering into buildChart
         var new_year = click_dict['year'];
         var new_x = click_dict['x'];
@@ -105,6 +107,25 @@ function makeResponsive() {
         var x_axis = data_year_filter.map(d => d[x_choice]);
         var y_axis = data_year_filter.map(d => d[y_choice]);
 
+        // determining tickspacing
+        var xtick, ytick;
+
+        if (x_choice == 'dur') {
+            xtick = 10;
+        } else if (x_choice == 'dB') {
+            xtick = 1;
+        } else if (x_choice == 'spch') {
+            xtick = 3;
+        } else { xtick = 5; };
+
+        if (y_choice == 'dur') {
+            ytick = 10;
+        } else if (y_choice == 'dB') {
+            ytick = 1;
+        } else if (y_choice == 'spch') {
+            ytick = 3;
+        } else { ytick = 5; }
+
         // creating the plot: colour is determined by genre, size is determined by popularity
         var traceA = {
             type: 'scatter',
@@ -143,7 +164,7 @@ function makeResponsive() {
                 autotick: false,
                 ticks: 'outside',
                 tick0: 0,
-                dtick: 4,
+                dtick: xtick,
                 ticklen: 8,
                 tickwidth: 2,
                 tickcolor: '#000',
@@ -154,7 +175,7 @@ function makeResponsive() {
                 autotick: false,
                 ticks: 'outside',
                 tick0: 0,
-                dtick: 2,
+                dtick: ytick,
                 ticklen: 8,
                 tickwidth: 2,
                 tickcolor: '#000',
