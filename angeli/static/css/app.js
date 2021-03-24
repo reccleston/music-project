@@ -112,7 +112,12 @@ var Yvalue = dance;
   
   var layout = {
     title: 'Danceability by Year',
-    barmode: 'stack'
+    barmode: 'stack',
+    xaxis: {
+      tickangle: 0,
+      showticklabels: true,
+      type: 'category',
+  }
   };
   
   Plotly.newPlot('dance', data, layout);
