@@ -70,7 +70,7 @@ data.forEach((x) => {
   }
   };
   
-  Plotly.newPlot('dance', data, layout);
+  Plotly.newPlot('bar', data, layout);
 
 });
 
