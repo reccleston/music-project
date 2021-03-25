@@ -3,8 +3,8 @@
 // Genre normalized stacked area chart : https://plotly.com/javascript/filled-area-plots/
 
 
-
-var path = '../data/dance.csv'
+// Copy of Sarah's app.js
+var path = '../data/year.csv'
 
 d3.csv(path).then(function(data) {
     console.log(data)
@@ -13,12 +13,19 @@ d3.csv(path).then(function(data) {
  data.forEach(function(d) {
     d.year = +d.year;
     d.dnce = d.dnce;
+    d.nrgy = d.nrgy;
+    d.val = d.val;
+    d.pop = d.pop;
+
 
 });
 
 // Create empty arrays to store the dish and spice values
 var year = [];
 var dance = [];
+var energy = [];
+var val = [];
+var pop = [];
 
 // Iterate through each recipe object
 data.forEach((x) => {
@@ -29,10 +36,27 @@ data.forEach((x) => {
       // Use the key to determine which array to push the value to
       if (key === "year") {
         year.push(value);
+        console.log('year');
+        console.log(value);
+      }
+      else if (key === "dnce") {
+        dance.push(value);
+        console.log('dance');
+        console.log(value);
+      }
+      else if (key === "nrgy") {
+        energy.push(value);
+        console.log('energy');
+        console.log(value);
+      }
+      else if (key === "val") {
+        val.push(value);
+        console.log('val');
         console.log(value);
       }
       else {
-        dance.push(value);
+        pop.push(value);
+        console.log('pop');
         console.log(value);
       }
      });
