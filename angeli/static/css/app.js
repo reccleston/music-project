@@ -38,58 +38,8 @@ data.forEach((x) => {
      });
   });
   
-var Xvalue = year;
-var Yvalue = dance;
-
-// var trace1 = {
-//   x: ['2010','2011','2012','2013','2014','2015','2016','2017','2018','2019'],
-//   // x: year,
-//   y: dance,
-//   type: 'bar'
-// };
-
-// var data = [trace1];
-
-//   var layout = {
-//     title: {
-//       text:'Danceability By Year',
-//       font: {
-//         family: 'Courier New, monospace',
-//         size: 24
-//       },
-//       xref: 'paper',
-//       x: 0.02,
-//     },
-//     xaxis: {
-//       title: {
-//         text: 'Year',
-//         font: {
-//           family: 'Courier New, monospace',
-//           size: 18
-//           ,
-//           color: '#7f7f7f'
-//         }
-//       },
-//       tickangle: -45
-//     },
-//     yaxis: {
-//       title: {
-//         text: 'Daceability Level',
-//         font: {
-//           family: 'Courier New, monospace',
-//           size: 18,
-//           color: '#7f7f7f'
-//         }
-//       }
-//     }
-//   };
-  
-//   Plotly.newPlot('dance', data, layout);
-
-
-  var xValue = ['2010','2011','2012','2013','2014','2015','2016','2017','2018','2019'];
-
-  var yValue = dance;
+  var xValue = year;
+  var yValue = dance; 
   
   var trace1 = {
     x: xValue,
