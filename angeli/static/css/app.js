@@ -13,7 +13,6 @@ d3.csv(path).then(function(data) {
     d.nrgy = d.nrgy;
     d.val = d.val;
     d.pop = d.pop;
-
 });
 
 // Create empty arrays to store the dish and spice values
@@ -96,40 +95,40 @@ data.forEach((x) => {
 
 // // switch
 
-//   var CHART = d3.selectAll("bar").node();
+  var CHART = d3.selectAll("bar").node();
 
-//   // Initialize x and y arrays
-//   var x = [];
-//   var y = [];
+  // Initialize x and y arrays
+  var x = [];
+  var y = [];
 
-//   switch(dataset) {
-//     case "dance":
-//       x = year;
-//       y = dance;
-//       break;
-//     case "energy":
-//       x = year;
-//       y = energy;
-//       break;
-//     case "valence":
-//       x = year;
-//       y = val;
-//       break;
-//     case "pop":
-//       x = year;
-//       y = pop;
-//       break;
-//     default:
-//       x = year;
-//       y = dance;
-//       break;
-//   }
+  switch(dataset) {
+    case "dance":
+      x = year;
+      y = dance;
+      break;
+    case "energy":
+      x = year;
+      y = energy;
+      break;
+    case "valence":
+      x = year;
+      y = val;
+      break;
+    case "pop":
+      x = year;
+      y = pop;
+      break;
+    default:
+      x = year;
+      y = dance;
+      break;
+  }
 
 
-//   // Note the extra brackets around 'x' and 'y'
-//   Plotly.restyle(CHART, "x", [x]);
-//   Plotly.restyle(CHART, "y", [y]);
-// }
+  // Note the extra brackets around 'x' and 'y'
+  Plotly.restyle(CHART, "x", [x]);
+  Plotly.restyle(CHART, "y", [y]);
+}
 
-// init();
+init();
 
