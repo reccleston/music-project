@@ -97,6 +97,8 @@ d3.csv('data/corr_heatmap_vals.csv').then(data => {
     .on("mouseleave", mouseleave)
 
 
+    // MAKE A LEGEND WHERE YOU HOVER OVER AND IT TELLS YOU HOW TO READ IT, NEGATIVE VALUES 
+    // https://raw.githubusercontent.com/d3/d3-interpolate/master/img/rgb.png
 // Add title to graph
 svg.append("text")
         .attr("x", 0)
@@ -114,5 +116,61 @@ svg.append("text")
         .style("fill", "grey")
         .style("max-width", 400)
         .text("with values ranging from -1 to 1, 1 signifying a closer relation");
+
+  // Legend 
+  var legend_svg = d3.select('#heatmap-corr-legend').append('svg')
+    .attr('width', 100)
+    .attr('height', 500)
+    .append('g')
+    .attr('width', 100)
+    .attr('height', 500)
+    .attr('transfrom', 'translate(10,10)');
+    
+
+  // legend_svg.append('rect')
+  //   .attr('x', 0)
+  //   .attr('y', 0)
+  //   .attr('width', 100)
+  //   .attr('height', 300)
+  //   .style("border-radius", "5px")
+
+
+    // gen continuous range from -1 to 1 
+    // use color scale to color 
+    // and tooltip 
+
+    var corr_range = [];
+    for (var i = -1; i < 1; i+=0.01) {
+      corr_range.push(i);
+    };
+
+    var leg_mousemove = function(d) {
+      tooltip
+        .html(`<h4>This color represents an r-val of ${d} </h4>`)
+        .style("left", (d3.mouse(this)[0]) + "px")
+        .style("top", (d3.mouse(this)[1]) + "px")
+    };
+
+    legend_svg.selectAll('rect')
+      .data(corr_range)
+      .enter()
+      .append('rect')
+      .attr('x', 0)
+      .attr('y', d => 500 * d)
+      .attr('rx', 4)
+      .attr('ry', 4)
+      .attr('width', 100)
+      .attr('height', 300)
+      .style("fill", function(d) {return myColor(d)})
+      .on("mouseover", mouseover)
+      .on('mousemove', leg_mousemove)
+      .on("mouseleave", mouseleave);
+
+
+
+
+
+    console.log(corr_range);
+
 
 });
