@@ -3,7 +3,7 @@
 // Genre normalized stacked area chart : https://plotly.com/javascript/filled-area-plots/
 
 
-// Copy of Sarah's app.js
+
 var path = '../data/dance.csv'
 
 d3.csv(path).then(function(data) {
