@@ -1,6 +1,3 @@
-// Graph Ideas
-// DB scatter plot or line graph :  
-// Genre normalized stacked area chart : https://plotly.com/javascript/filled-area-plots/
 
 
 // Copy of Sarah's app.js
@@ -16,7 +13,6 @@ d3.csv(path).then(function(data) {
     d.nrgy = d.nrgy;
     d.val = d.val;
     d.pop = d.pop;
-
 
 });
 
@@ -63,7 +59,7 @@ data.forEach((x) => {
   });
   
   var xValue = year;
-  var yValue = dance; 
+  var yValue = dance;
   
   var trace1 = {
     x: xValue,
@@ -98,4 +94,42 @@ data.forEach((x) => {
 
 });
 
+// // switch
+
+//   var CHART = d3.selectAll("bar").node();
+
+//   // Initialize x and y arrays
+//   var x = [];
+//   var y = [];
+
+//   switch(dataset) {
+//     case "dance":
+//       x = year;
+//       y = dance;
+//       break;
+//     case "energy":
+//       x = year;
+//       y = energy;
+//       break;
+//     case "valence":
+//       x = year;
+//       y = val;
+//       break;
+//     case "pop":
+//       x = year;
+//       y = pop;
+//       break;
+//     default:
+//       x = year;
+//       y = dance;
+//       break;
+//   }
+
+
+//   // Note the extra brackets around 'x' and 'y'
+//   Plotly.restyle(CHART, "x", [x]);
+//   Plotly.restyle(CHART, "y", [y]);
+// }
+
+// init();
 
