@@ -20,7 +20,6 @@ var energy = [];
 var val = [];
 var pop = [];
 
-
 // Iterate through each recipe object
 data.forEach((x) => {
 
