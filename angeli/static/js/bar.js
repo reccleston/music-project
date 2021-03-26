@@ -9,11 +9,11 @@ var valance = [];
 var popularity = [];
 
 // list for the dropdown
-var cols_list = ['dance', 'energy', 'valance', 'popularity'];
+var cols_list = ['danceability', 'energy', 'valance', 'popularity'];
 // dictionary to retrive lists from based on dropdown
 var col_dict = {
   'year': year,
-  'dance': dance,
+  'danceability': dance,
   'energy': energy,
   'valance': valance,
   'popularity': popularity
@@ -109,7 +109,9 @@ function buildChart(xValue, yValue) {
       tickangle: 0,
       showticklabels: true,
       type: 'category',
-  }
+      title: `${xValue}`
+    },
+    yaxis: {title: `${yValue}`}
   };
   
   Plotly.newPlot('bar', data, layout);
