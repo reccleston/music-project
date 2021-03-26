@@ -175,7 +175,7 @@ d3.csv(path).then(function(data) {
      });
   });
   // calling for dropdown fill
-  dropdownFill(cols_list);
+  dropdownFill(list);
   // setting start x and y values
   xValue = 'year';
   yValue = 'energy';
