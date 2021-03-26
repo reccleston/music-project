@@ -21,6 +21,7 @@ var dance = [];
 var energy = [];
 var val = [];
 var pop = [];
+var barcolor = ""
 
 // Iterate through each recipe object
 data.forEach((x) => {
@@ -30,7 +31,7 @@ data.forEach((x) => {
   
       // Use the key to determine which array to push the value to
       if (key === "year") {
-        year.push(value);
+        year.push(value); 
         console.log('year');
         console.log(value);
       }
@@ -58,7 +59,7 @@ data.forEach((x) => {
   });
   
   var xValue = year;
-  var yValue = dance;
+  var yValue = val;
   
   var trace1 = {
     x: xValue,
@@ -68,15 +69,36 @@ data.forEach((x) => {
     textposition: 'auto',
     hoverinfo: 'none',
     marker: {
-      color: 'rgb(158,202,225)',
+      color: barcolor,
       opacity: 0.6,
       line: {
-        color: 'rgb(8,48,107)',
+        color: barcolor,
         width: 1.5
       }
     }
   };
-  
+
+  // ????????
+
+
+  switch(yValue) {
+    case "dance":
+        barcolor = 'rgb(0, 0, 255)';
+      break;
+    case "energy":
+        barcolor = 'rgb(60, 179, 113)';
+      break;
+    case "val":
+        barcolor = 'rgb(255, 165, 0)';
+      break;
+    case "pop":
+        barcolor = 'rgb(238, 130, 238)';
+      break;
+    default:
+         barcolor = 'rgb(0, 0, 255)';
+      break;
+  }
+
   var data = [trace1];
   
   var layout = {
@@ -95,40 +117,44 @@ data.forEach((x) => {
 
 // // switch
 
-  var CHART = d3.selectAll("bar").node();
-
-  // Initialize x and y arrays
-  var x = [];
-  var y = [];
-
-  switch(dataset) {
-    case "dance":
-      x = year;
-      y = dance;
-      break;
-    case "energy":
-      x = year;
-      y = energy;
-      break;
-    case "valence":
-      x = year;
-      y = val;
-      break;
-    case "pop":
-      x = year;
-      y = pop;
-      break;
-    default:
-      x = year;
-      y = dance;
-      break;
-  }
+// // Getting a reference to the button on the page with the id property set to `click-me`
+// var button = d3.select("button");
 
 
-  // Note the extra brackets around 'x' and 'y'
-  Plotly.restyle(CHART, "x", [x]);
-  Plotly.restyle(CHART, "y", [y]);
-}
+//   var CHART = d3.selectAll("bar").node();
 
-init();
+//   // Initialize x and y arrays
+//   var x = [];
+//   var y = [];
+
+//   switch(dataset) {
+//     case "dance":
+//       x = year;
+//       y = dance;
+//       break;
+//     case "energy":
+//       x = year;
+//       y = energy;
+//       break;
+//     case "valence":
+//       x = year;
+//       y = val;
+//       break;
+//     case "pop":
+//       x = year;
+//       y = pop;
+//       break;
+//     default:
+//       x = year;
+//       y = dance;
+//       break;
+//   }
+
+
+//   // Note the extra brackets around 'x' and 'y'
+//   Plotly.restyle(CHART, "x", [x]);
+//   Plotly.restyle(CHART, "y", [y]);
+// }
+
+// init();
 
