@@ -1,5 +1,3 @@
-
-
 // Copy of Sarah's app.js
 var path = '../data/year.csv'
 
@@ -21,7 +19,7 @@ var dance = [];
 var energy = [];
 var val = [];
 var pop = [];
-var barcolor = ""
+
 
 // Iterate through each recipe object
 data.forEach((x) => {
@@ -59,7 +57,27 @@ data.forEach((x) => {
   });
   
   var xValue = year;
-  var yValue = val;
+  var yValue = energy;
+
+
+  // Function
+  function varcolor(yValue) {
+  
+    // Change Fill Color 
+  
+    switch(yValue) {
+      case dance:
+          return 'rgb(0, 0, 255)';
+      case energy:
+          return 'rgb(60, 179, 113)';
+      case val:
+          return 'rgb(255, 165, 0)';
+      case pop:
+          return 'rgb(238, 130, 238)';
+      default:
+           return 'rgb(0, 0, 255)';
+  
+    }};
   
   var trace1 = {
     x: xValue,
@@ -69,35 +87,15 @@ data.forEach((x) => {
     textposition: 'auto',
     hoverinfo: 'none',
     marker: {
-      color: barcolor,
+      color: varcolor(yValue),
       opacity: 0.6,
       line: {
-        color: barcolor,
+        color: varcolor(yValue),
         width: 1.5
       }
     }
   };
 
-  // ????????
-
-
-  switch(yValue) {
-    case "dance":
-        barcolor = 'rgb(0, 0, 255)';
-      break;
-    case "energy":
-        barcolor = 'rgb(60, 179, 113)';
-      break;
-    case "val":
-        barcolor = 'rgb(255, 165, 0)';
-      break;
-    case "pop":
-        barcolor = 'rgb(238, 130, 238)';
-      break;
-    default:
-         barcolor = 'rgb(0, 0, 255)';
-      break;
-  }
 
   var data = [trace1];
   
