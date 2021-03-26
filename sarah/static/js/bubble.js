@@ -1,12 +1,11 @@
+// dictionary to hold user choices, with preset arbitrary choices set in for initial display
+// needs to be defined outside the function so the values don't reset upon page reload
+var click_dict = {'year': 2011, 'x': 'bpm', 'y': 'nrgy'};
 function makeResponsive() {
     // making chart width dependant on page width, height as a constant
     var chartWidth = window.innerWidth * 5/6;
     var chartHeight = 700;
 
-    // dictionary to hold user choices, with preset arbitrary choices set in for initial display
-    var click_dict = {
-        'year': 2011, 'x': 'bpm', 'y': 'nrgy'
-    };
     // dict to change abbreviations to full words
     var label_dict = {
         bpm: 'Beats Per Minute',
@@ -76,6 +75,8 @@ function makeResponsive() {
         var data = click_dict['data'];
         // calling the funct
         buildChart(new_year, new_x, new_y, data);
+        console.log('click dict when chart is triggered');
+        console.log(click_dict);
     };
 
     // event listener for click on button
@@ -211,7 +212,6 @@ function makeResponsive() {
     var path = 'static/data/data_cleaned.csv'
 
     d3.csv(path).then(function(data) {
-        // console.log(data.columns);
         // changing types
         data.forEach(function(d) {
             d.genre_num = +d.genre_num;
@@ -227,9 +227,13 @@ function makeResponsive() {
             d.pop = +d.pop;
         });
 
+        // sending data to the dict
         click_dict['data'] = data;
+        
         // sending to dropdown fill funct
+        // getting the col names
         var columns = data.columns;
+        // making a unique list (set) of the years in the dataset
         var year_data = [...new Set(data.map(d => d.year))];
         dropdownFill(year_data, columns);
 
