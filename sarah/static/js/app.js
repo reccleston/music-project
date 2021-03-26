@@ -7,12 +7,27 @@ function makeResponsive() {
     var click_dict = {
         'year': 2011, 'x': 'bpm', 'y': 'nrgy'
     };
+    // dict to change abbreviations to full words
+    var label_dict = {
+        bpm: 'Beats Per Minute',
+        nrgy: 'Energy',
+        dnce: 'Danceability',
+        dB: 'Decibels',
+        val: 'Valence',
+        dur: 'Duration',
+        acous: 'Acoustic-ness',
+        spch: 'Speechiness',
+        pop: 'Popularity'
+    };
+
     // event handling
     function yearReact() {
         d3.event.preventDefault();
         var chosen_year = d3.select(this).text();   
         // adding to alert display
+        // select the div
         d3.select('#choice-alert').style('display', 'inline-block');
+        // select the year element, update style and text
         var year_li = d3.select('#year-display')
         year_li.style('display', 'inline-block');
         year_li.text(`Year: ${chosen_year}`);
@@ -22,25 +37,30 @@ function makeResponsive() {
 
     function xReact() {
         d3.event.preventDefault();
-        var chosen_x = d3.select(this).text();   
+        // get the value of the chosen 'col' (since the text is different), save it to the click_dict, for calling to the data
+        var chosen_x = d3.select(this).node().getAttribute('value');   
         // adding to alert display
+        // select the div
         d3.select('#choice-alert').style('display', 'inline-block');
+        // select the x-axis element, change style and text
         var x_li = d3.select('#x-display')
         x_li.style('display', 'inline-block');
-        // x_li.select('a').text(`X-Axis: ${chosen_x}`);
-        x_li.text(`X-Axis: ${chosen_x}`);
+        x_li.text(`X-Axis: ${label_dict[chosen_x]}`);
         // adding to dict for user choices
         click_dict['x'] = chosen_x;
     };
 
     function yReact() {
         d3.event.preventDefault();
-        var chosen_y = d3.select(this).text();   
+        // get the value of the chosen 'col' (since the text is different), save it to the click_dict, for calling to the data
+        var chosen_y = d3.select(this).node().getAttribute('value');   
         // adding to alert display
+        // select the div
         d3.select('#choice-alert').style('display', 'inline-block');
+        // select the y-axis element, change style and text
         var y_li = d3.select('#y-display')
         y_li.style('display', 'inline-block');
-        y_li.text(`Y-Axis: ${chosen_y}`);
+        y_li.text(`Y-Axis: ${label_dict[chosen_y]}`);
         // adding to dict for user choices
         click_dict['y'] = chosen_y;
     };
@@ -85,9 +105,9 @@ function makeResponsive() {
         // appending same data to both x and y dropdowns
         cols_for_dd.forEach(col => {
             x_dropdown.append('a').attr('class', 'dropdown-item')
-                .attr('href', '#').attr('value', `${col}`).text(col).on('click', xReact);
+                .attr('href', '#').attr('value', `${col}`).text(label_dict[col]).on('click', xReact);
             y_dropdown.append('a').attr('class', 'dropdown-item')
-                .attr('href', '#').attr('value', `${col}`).text(col).on('click', yReact);
+                .attr('href', '#').attr('value', `${col}`).text(label_dict[col]).on('click', yReact);
         });
 
     };
@@ -156,11 +176,11 @@ function makeResponsive() {
             autosize: false,
             width: chartWidth,
             height: chartHeight,
-            title: `${x_choice} vs. ${y_choice} in ${year}`,
+            title: `${label_dict[x_choice]} vs. ${label_dict[y_choice]} in ${year}`,
             hovermode: 'closest',
             legend: {orientation: 'v', x: 0.87, y: 0.05},
             xaxis: {
-                title: `${x_choice}`,
+                title: `${label_dict[x_choice]}`,
                 autotick: false,
                 ticks: 'outside',
                 tick0: 0,
@@ -171,7 +191,7 @@ function makeResponsive() {
                 zeroline: false
             },
             yaxis: {
-                title: `${y_choice}`,
+                title: `${label_dict[y_choice]}`,
                 autotick: false,
                 ticks: 'outside',
                 tick0: 0,
