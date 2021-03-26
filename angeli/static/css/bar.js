@@ -5,6 +5,7 @@ var path = '../data/year.csv'
 var year = [];
 var dance = [];
 var energy = [];
+<<<<<<< HEAD:angeli/static/css/app.js
 var valance = [];
 var popularity = [];
 
@@ -56,6 +57,16 @@ function dropdownFill(cols_list) {
 
   // getting rid of any existing dropdown items
   factor_dropdown.text('');
+=======
+var val = [];
+var pop = [];
+
+// Iterate through each recipe object
+data.forEach((x) => {
+
+    // Iterate through each key and value
+    Object.entries(x).forEach(([key, value]) => {
+>>>>>>> 581a63ad091b1f251a9f97887cb43b081dff83d9:angeli/static/css/bar.js
   
   // appending factors
   cols_list.forEach(col => {
