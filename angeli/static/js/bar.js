@@ -1,5 +1,5 @@
 // path to csv
-var path = '../data/year.csv'
+var path = '../../../data/year.csv'
 
 // Create empty arrays to store the factor values
 var year = [];
@@ -120,7 +120,6 @@ function buildChart(xValue, yValue) {
 
 // reading in the data and calling initial functs --------------------------------------------------------
 d3.csv(path).then(function(data) {
-    console.log(data)
 
  // changing types
  data.forEach(function(d) {
