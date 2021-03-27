@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Top Tracks 2010-2020</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -32,7 +32,28 @@
         
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
-
+            <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                  <a class="navbar-brand" href="#">Top Tracks Playspace</a>
+                  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                      <a class="nav-link" href="#heat-sunburst">Heatmap <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#heat-sunburst">Sunburst</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#bubble-row">Bubble</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#bar-row">Bar</a>
+                      </li>
+                  </ul>
+                </div>
+            </nav>
             <!-- Main Content -->
             <div id="content">
 
@@ -41,114 +62,28 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-                    </div>
-
-                    <!-- Content Row -->
-                    <!-- <div class="row">
-
-                        Earnings (Monthly) Card Example
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Earnings (Monthly)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        Earnings (Monthly) Card Example -->
-                        <!-- <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Earnings (Annual)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <!-- <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-info shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
-                                            </div>
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="progress progress-sm mr-2">
-                                                        <div class="progress-bar bg-info" role="progressbar"
-                                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-
-                        <!-- Pending Requests Card Example -->
-                        <!-- <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-warning shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Pending Requests</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --> 
-
-                    <!-- Content Row -->
-                    <div class="row">
-                        
+                    <!-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800" style='padding-top: 15px;'>Top Tracks Playspace</h1>
+                    </div> -->
+                    
+                    
+                    <!-- row for heatmap and sunburst -->
+                    <div class="row" id='heat-sunburst'>
+                        <!-- col for heatmap -->
                         <div class="col-md-6">
                             <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
+                                <!-- Card Header -->
                                 <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    class="card-header">
                                     <h6 class="m-0 font-weight-bold text-primary">Correlation Heatmap</h6>
+                                    <hr>
+                                    <p>Chart Description </p>
+                                    <nl>
+                                        <p>Directions</p>
+                                    </nl>
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
-                                    <!-- <div class="chart-pie pt-4 pb-2">
-                                        <canvas id="myPieChart"></canvas>
-                                    </div> -->
                                     <div class="row">
                                         <div class="col-md-9">
                                             <div id='heatmap-corr'></div>
@@ -156,55 +91,47 @@
                                         <div class="col-md-2">
                                             <div id='heatmap-corr-legend'></div>
                                         </div>
+                                    <!-- end of heatmap graph/legend row -->
                                     </div>
+                                <!-- end of card body -->
                                 </div>
+                            <!-- end of card -->
                             </div>
+                        <!-- end of heatmap col -->
                         </div>
-
+                        <!-- sunburst div -->
                         <div class="col-lg-6 mb-4">
-
-                            <!-- Illustrations -->
                             <div class="card shadow mb-4">
-                                <div class="card-header py-3">
+                                <div class="card-header">
                                     <h6 class="m-0 font-weight-bold text-primary">Sunburst Chart</h6>
+                                    <hr>
+                                    <p>Chart Description </p>
+                                    <nl>
+                                        <p>Directions</p>
+                                    </nl>
                                 </div>
-                            <iframe src="sunburst.html" style="width:400px; height: 200px;"></iframe>
+                            <iframe src="sunburst.html" style="width:675px; height: 540px;" frameBorder='0'></iframe>
+                            <!-- end of card div -->
                             </div>
+                        <!-- end of sunburst div -->
                         </div>
                     </div>
 
-                    <div class="row">
-
+                    <div class="row" id='bubble-row'>
                         <!-- Bubble Chart -->
                         <div class="col-md-12">
                             <div class="card shadow mb-4">
                                 <!-- Card Header-->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between" style="width: 100%;">
+                                <div class="card-header" style="width: 100%;">
                                     <h6 class="m-0 font-weight-bold text-primary">Bubble Chart</h6>
-                                    <br>
-                                    <p>This graph shows a bubble chart.</p>
-                                    <!-- <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </div> -->
+                                    <hr>
+                                    <p>This graph shows a bubble chart showing the tracks from a given year, comparing features of each track against each other. The color of the bubbles are determined by the genre of the tracks, and the popularity of the track determines the bubble size.</p>
+                                    <nl>
+                                        <p>Choose the year, and factors you want on the x- and y-axes, then click 'Make Chart' to see those factors compared.</p>
+                                    </nl>
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
-                                    <!-- <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
-                                    </div> -->
-                                    <!-- <div id="bubble"></div> -->
                                     <div class='col-md-12'>
                                         <nav class="navbar navbar-expand-lg navbar-light bg-light">
                                             <a class="navbar-brand" href="#">Track Components</a>
@@ -270,22 +197,22 @@
                             </div>
                         </div>
                     </div>
-            
-                    <!-- Correlation Heatmap -->    
-                    
 
-                    <!-- Content Row -->
-                    <div class="row">
+                    <!-- Bar Graph Row -->
+                    <div class="row" id='bar-row'>
 
                         <!-- Content Column -->
                         <div class="col-md-12">
                             <div class="card shadow mb-4">
                                 <!-- Card Header-->
                                 <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between" style="width: 100%;">
+                                    class="card-header" style="width: 100%;">
                                     <h6 class="m-0 font-weight-bold text-primary">Bar</h6>
-                                    <br>
-                                    <p>This graph shows a bar chart.</p>
+                                    <hr>
+                                    <p>This graph is a bar chart that organizes the tracks per year, and shows the total value of all the tracks for a certain factor. </p>
+                                    <nl>
+                                        <p>Choose the factor you want displayed, then click 'Make Chart' to see that factor compared across the years compared.</p>
+                                    </nl>
                             </div>
                             <div class="card-body">
                                 <!-- <div class="chart-pie pt-4 pb-2">
