@@ -132,20 +132,22 @@
                                 </div>
                             </div>
                         </div>
-                    </div> --> -->
+                    </div> --> 
 
                     <!-- Content Row -->
 
                     <div class="row">
 
-                        <!-- Area Chart -->
-                        <!-- <div class="col-xl-8 col-lg-7">
-                            <div class="card shadow mb-4"> -->
-                                <!-- Card Header - Dropdown -->
-                                <!-- <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <!-- Bubble Chart -->
+                        <div class="col-md-12">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header-->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between" style="width: 100%;">
                                     <h6 class="m-0 font-weight-bold text-primary">Bubble Chart</h6>
-                                    <div class="dropdown no-arrow">
+                                    <br>
+                                    <p>This graph shows a bubble chart.</p>
+                                    <!-- <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -158,79 +160,80 @@
                                             <div class="dropdown-divider"></div>
                                             <a class="dropdown-item" href="#">Something else here</a>
                                         </div>
-                                    </div>
-                                </div> -->
+                                    </div> -->
+                                </div>
                                 <!-- Card Body -->
-                                <!-- <div class="card-body"> -->
+                                <div class="card-body">
                                     <!-- <div class="chart-area">
                                         <canvas id="myAreaChart"></canvas>
                                     </div> -->
-                                    <!-- <div id="bubble"></div>
+                                    <!-- <div id="bubble"></div> -->
+                                    <div class='col-md-12'>
+                                        <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+                                            <a class="navbar-brand" href="#">Track Components</a>
+                                            <!-- collapsable section for when page is small -->
+                                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                              <span class="navbar-toggler-icon"></span>
+                                            </button>
+                                            <!-- three dropdowns -->
+                                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                              <ul class="navbar-nav mr-auto" id='navbar-ul'>
+                                                <!-- years -->
+                                                <li class="nav-item dropdown" id='year-dropdown'>
+                                                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Year
+                                                  </a>
+                                                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                    <!-- will be filled in by JS -->
+                                                  </div>
+                                                </li>
+                                                <!-- x axis -->
+                                                <li class="nav-item dropdown" id='x-axis-dropdown'>
+                                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                      X Axis
+                                                    </a>
+                                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                      <!-- filled by JS -->
+                                                    </div>
+                                                  </li>
+                                                <!-- y axis -->
+                                                <li class="nav-item dropdown" id="y-axis-dropdown">
+                                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                      Y Axis
+                                                    </a>
+                                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                      <!-- filled by JS -->
+                                                    </div>
+                                              </ul> 
+                                            
+                                            <button class="btn btn-outline-success my-2 my-sm-0" id="trigger-chart" type="submit">Make Chart</button>
+                                            </div>
+                                        </nav> 
+                                    </div>
+                                </div>
+                                <!-- Alert that becomes visible upon user choice -->
+                                <div class="alert alert-light" role="alert" id='choice-alert'>
+                                    <div class="mx-auto" style="width: 800px;">
+                                        <div id="selection-choices">
+                                            <ul>
+                                                <li><strong>Current Changes to Apply:</strong></li>
+                                                <li id='year-display'></li>
+                                                <li id='x-display'></li>
+                                                <li id='y-display'></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+            
+                                <div class="row bubble-container">
+                                    <div class="col-md-12">
+                                        <div id="bubble"></div>
+                                    </div>
+                                </div>
                                 </div>
                             </div>
-                        </div> -->
-                        <div class='col-md-12'>
-                            <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-                                <a class="navbar-brand" href="#">Track Components</a>
-                                <!-- collapsable section for when page is small -->
-                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                                  <span class="navbar-toggler-icon"></span>
-                                </button>
-                                <!-- three dropdowns -->
-                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                  <ul class="navbar-nav mr-auto" id='navbar-ul'>
-                                    <!-- years -->
-                                    <li class="nav-item dropdown" id='year-dropdown'>
-                                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Year
-                                      </a>
-                                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <!-- will be filled in by JS -->
-                                      </div>
-                                    </li>
-                                    <!-- x axis -->
-                                    <li class="nav-item dropdown" id='x-axis-dropdown'>
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                          X Axis
-                                        </a>
-                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                          <!-- filled by JS -->
-                                        </div>
-                                      </li>
-                                    <!-- y axis -->
-                                    <li class="nav-item dropdown" id="y-axis-dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                          Y Axis
-                                        </a>
-                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                          <!-- filled by JS -->
-                                        </div>
-                                  </ul> 
-                                
-                                <button class="btn btn-outline-success my-2 my-sm-0" id="trigger-chart" type="submit">Make Chart</button>
-                                </div>
-                            </nav> 
                         </div>
-                    </div>
-                    <!-- Alert that becomes visible upon user choice -->
-                    <div class="alert alert-light" role="alert" id='choice-alert'>
-                        <div class="mx-auto" style="width: 600px;">
-                            <div id="selection-choices">
-                                <ul>
-                                    <li><strong>Current Changes to Apply:</strong></li>
-                                    <li id='year-display'></li>
-                                    <li id='x-display'></li>
-                                    <li id='y-display'></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row bubble-container">
-                        <div class="col-md-12">
-                            <div id="bubble"></div>
-                        </div>
-                    </div>
+                        
                     <div class="row">
                         <!-- Pie Chart -->
                         <div class="col-xl-4 col-lg-5">

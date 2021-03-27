@@ -66,7 +66,7 @@ function makeResponsive() {
 
     function triggerChart() {
         d3.event.preventDefault();
-        console.log('trigger chart triggered');
+        // console.log('trigger chart triggered');
         // makes choice alert disappear again
         d3.select('#choice-alert').style('display', 'none');
         // setting up variables for entering into buildChart
@@ -76,8 +76,6 @@ function makeResponsive() {
         var data = click_dict['data'];
         // calling the funct
         buildChart(new_year, new_x, new_y, data);
-        console.log('click dict when chart is triggered');
-        console.log(click_dict);
     };
 
     // event listener for click on button
