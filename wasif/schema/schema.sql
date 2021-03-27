@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS data_cleaned;
 DROP TABLE IF EXISTS corr_heatmap_vals;
 DROP TABLE IF EXISTS year_table;
 
-Create table "data_cleaned" (
+Create table data_cleaned (
 "title" VARCHAR NOT NULL,
 "artist" VARCHAR NOT NULL,
 "top genre" VARCHAR NOT NULL,
@@ -18,12 +18,12 @@ Create table "data_cleaned" (
 "spch" NUMERIC NOT NULL,
 "pop" NUMERIC NOT NULL);
 
-create table "corr_heatmap_vals" (
+create table corr_heatmap_vals (
 "feat1" VARCHAR NOT NULL,
 "feat2" VARCHAR NOT NULL,
 "val" NUMERIC NOT NULL);
 
-create table "year_table" (
+create table year_table (
 "year" INT NOT NULL,
 "nrgy" INT NOT NULL,
 "dnce" INT NOT NULL,
