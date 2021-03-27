@@ -10,6 +10,7 @@ function makeResponsive() {
     var label_dict = {
         bpm: 'Beats Per Minute',
         nrgy: 'Energy',
+        live: 'Liveness',
         dnce: 'Danceability',
         dB: 'Decibels',
         val: 'Valence',

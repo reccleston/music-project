@@ -19,6 +19,7 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="static/css/flip_style.css">
     <link rel="stylesheet" type="text/css" href="static/css/style_bubble.css">
     <link rel="stylesheet" type="text/css" href="static/css/styles.css">
     <link rel="stylesheet" type="text/css" href="static/css/bar_style.css">
@@ -58,13 +59,50 @@
                
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
+                    <!-- text explanation row -->
+                    <div class='row'>
+                        <div class='col-md-8'>
+                            <div class='card' id="box-proj-info">
+                                <div class="front justify-content-center" id='proj-info-front'>
+                                    <h2 id='front-pi-text'><strong>Project Information</strong></h2>
+                                </div>
+                                <div class="back" id='proj-info-back'>
+                                    <h5><strong>Scope and Inspiration</strong></h5>
+                                    <p class='back-pi-box-text'>This webpage displays information from a <a href="https://www.kaggle.com/leonardopena/top-spotify-songs-from-20102019-by-year" target='_blank'>Kaggle dataset</a> on the top songs (according to Billboard rankings) worldwide on Spotify between 2010 and 2019.</p>
+                                    <p class='back-pi-box-text'>We were inspired to work on this dataset because Spotify is a widely used streaming application, and drawing connections between different song qualities (here called "factors") seemed like an intriguing idea.</p>
+                                    <h5><strong>Points of Interest</strong></h5>
+                                    <ul>
+                                        <li class='back-pi-box-text'>The three strongest positive correlations found are between decibels and energy (0.538), valence and danceability (0.502), and valence and energy (0.41). The strongest negative correlation was between acousticness and energy (-0.562). (Heatmap)</li>
+                                        <li class='back-pi-box-text'>The pop genre is always 'popular', making up 80% of the top tracks (Sunburst)</li>
+                                        <li class='back-pi-box-text'>2013 marks the year where a greater variety of genres start appearing within the top tracks (Bubble)</li>
+                                        <li class='back-pi-box-text'>2013 and 2015 tracks are high in positivity (valence), danceability and energy. They also seem to be years with the most popular tracks. Meanwhile 2012 and 2019 mark a downturn in all these factors. (Bar)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='col-md-4'>
+                            <div class='card' id="box-terms">
+                                <div class="front" id='box-terms-front'>
+                                    <h2 id='front-terms-text'><strong>Terms</strong></h2>
+                                </div>
+                                <div class="back" id='box-terms-back'>
+                                    <ul id='box-terms-list'>
+                                        <li>Popularity/pop: how popular a song is. The higher the number, the more popular it is.</li>
+                                        <li>Speechiness/spch: how much spoken word is in the track.</li>
+                                        <li>Acoustic-ness/acous: how acoustic the song is.</li>
+                                        <li>Duration/dur: how long the track is (in seconds).</li>
+                                        <li>Valence/val: how positive the track is.</li>
+                                        <li>Liveness/live: how likely it is for the track to be a live recording.</li>
+                                        <li>Decibels/dB: how loud the track is.</li>
+                                        <li>Danceability/dnce: how easy it is to dance to the song.</li>
+                                        <li>Energy/nrgy: how energetic the song is.</li>
+                                        <li>Beats Per Minute/bpm: how many beats per minute, or, the track's tempo.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                    <!-- Page Heading -->
-                    <!-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800"'>Top Tracks Playspace</h1>
-                    </div> -->
-                    
-                    
                     <!-- row for heatmap and sunburst -->
                     <div class="row" id='heat-sunburst'>
                         <!-- col for heatmap -->
@@ -75,9 +113,9 @@
                                     class="card-header">
                                     <h6 class="m-0 font-weight-bold text-primary">Correlation Heatmap</h6>
                                     <hr>
-                                    <p>Chart Description </p>
+                                    <p>This chart is a correlation heatmap showing the level of relation between the different factors of each song. The values within this chart range from -1 to 1, with 1 signifying a closer relation.</p>
                                     <nl>
-                                        <p>Directions</p>
+                                        <p>Hover over the tile to see the correlation value. Use the heat legend to see the r-value.</p>
                                     </nl>
                                 </div>
                                 <!-- Card Body -->
@@ -103,9 +141,9 @@
                                 <div class="card-header">
                                     <h6 class="m-0 font-weight-bold text-primary">Sunburst Chart</h6>
                                     <hr>
-                                    <p>Chart Description </p>
+                                    <p>This chart is a sunburst which depicts genres, artists and songs. The first outer circle shows the artists contained within each genre, and the next circle shows the songs by each artist.</p>
                                     <nl>
-                                        <p>Directions</p>
+                                        <p>Click on each slice to expand that segment.</p>
                                     </nl>
                                 </div>
                             <iframe src="sunburst.html" style="width:675px; height: 540px;" frameBorder='0'></iframe>
@@ -123,7 +161,7 @@
                                 <div class="card-header" style="width: 100%;">
                                     <h6 class="m-0 font-weight-bold text-primary">Bubble Chart</h6>
                                     <hr>
-                                    <p>This graph shows a bubble chart showing the tracks from a given year, comparing features of each track against each other. The color of the bubbles are determined by the genre of the tracks, and the popularity of the track determines the bubble size.</p>
+                                    <p>This graph shows a bubble chart showing the tracks from a given year, comparing factors of each track against each other. The color of the bubbles are determined by the genre of the tracks, and the popularity of the track determines the bubble size.</p>
                                     <nl>
                                         <p>Choose the year, and factors you want on the x- and y-axes, then click 'Make Chart' to see those factors compared.</p>
                                     </nl>
@@ -213,10 +251,6 @@
                                     </nl>
                             </div>
                             <div class="card-body">
-                                <!-- <div class="chart-pie pt-4 pb-2">
-                                    <canvas id="myPieChart"></canvas>
-                                </div> -->
-                                
                                 <div class='row'>
                                     <div class='col-md-12'>
                                         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -262,156 +296,7 @@
                         </div>  
                     <!-- end of row -->
                     </div>
-                                <!-- <div class="card-body">
-                                    <h4 class="small font-weight-bold">Server Migration <span
-                                            class="float-right">20%</span></h4>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 20%"
-                                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <h4 class="small font-weight-bold">Sales Tracking <span
-                                            class="float-right">40%</span></h4>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 40%"
-                                            aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <h4 class="small font-weight-bold">Customer Database <span
-                                            class="float-right">60%</span></h4>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar" role="progressbar" style="width: 60%"
-                                            aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <h4 class="small font-weight-bold">Payout Details <span
-                                            class="float-right">80%</span></h4>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar bg-info" role="progressbar" style="width: 80%"
-                                            aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <h4 class="small font-weight-bold">Account Setup <span
-                                            class="float-right">Complete!</span></h4>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-success" role="progressbar" style="width: 100%"
-                                            aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                            </div> -->
-
-                            <!-- Color System
-                            <div class="row">
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-primary text-white shadow">
-                                        <div class="card-body">
-                                            Primary
-                                            <div class="text-white-50 small">#4e73df</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-success text-white shadow">
-                                        <div class="card-body">
-                                            Success
-                                            <div class="text-white-50 small">#1cc88a</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-info text-white shadow">
-                                        <div class="card-body">
-                                            Info
-                                            <div class="text-white-50 small">#36b9cc</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-warning text-white shadow">
-                                        <div class="card-body">
-                                            Warning
-                                            <div class="text-white-50 small">#f6c23e</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-danger text-white shadow">
-                                        <div class="card-body">
-                                            Danger
-                                            <div class="text-white-50 small">#e74a3b</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-secondary text-white shadow">
-                                        <div class="card-body">
-                                            Secondary
-                                            <div class="text-white-50 small">#858796</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-light text-black shadow">
-                                        <div class="card-body">
-                                            Light
-                                            <div class="text-black-50 small">#f8f9fc</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-dark text-white shadow">
-                                        <div class="card-body">
-                                            Dark
-                                            <div class="text-white-50 small">#5a5c69</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
-
-                        <!-- </div> -->
-
-                        <!-- <div class="col-lg-6 mb-4"> -->
-
-                            <!-- Illustrations -->
-                            <!-- <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Sunburst Chart</h6>
-                                </div>
-                            <iframe src="sunburst.html" style="width:400px; height: 200px;"></iframe> -->
-
-
-
-
-
-                                <!-- <div class="card-body">
-                                    <div class="text-center">
-                                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
-                                            src="img/undraw_posting_photo.svg" alt="">
-                                    </div>
-                                    <p>Add some quality, svg illustrations to your project courtesy of <a
-                                            target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a
-                                        constantly updated collection of beautiful svg images that you can use
-                                        completely free and without attribution!</p>
-                                    <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on
-                                        unDraw &rarr;</a>
-                                </div> -->
-                            <!-- </div> -->
-
-                            <!-- Approach
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
-                                </div>
-                                <div class="card-body">
-                                    <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce
-                                        CSS bloat and poor page performance. Custom CSS classes are used to create
-                                        custom components and custom utility classes.</p>
-                                    <p class="mb-0">Before working with this theme, you should become familiar with the
-                                        Bootstrap framework, especially the utility classes.</p>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div> -->
-                <!-- /.container-fluid -->
+                </div>               
 
             </div>
             <!-- End of Main Content -->
@@ -420,7 +305,8 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <span>Copyright &copy; Angeli, Jini Hassan, Ryan Eccleston-Murdock, Wasif Khan, and Sarah D. Hood
+                            2021</span>
                     </div>
                 </div>
             </footer>
@@ -500,6 +386,10 @@
         <script src="https://d3js.org/d3.v5.min.js"></script>
         <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>      
 		<script type="text/javascript" src="static/js/bar.js"></script>
+
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+        <script type="text/javascript" src="static/js/flip.js"></script>
 
 
 </body>

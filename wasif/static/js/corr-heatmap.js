@@ -100,22 +100,22 @@ d3.csv('data/corr_heatmap_vals.csv').then(data => {
     // MAKE A LEGEND WHERE YOU HOVER OVER AND IT TELLS YOU HOW TO READ IT, NEGATIVE VALUES 
     // https://raw.githubusercontent.com/d3/d3-interpolate/master/img/rgb.png
 // Add title to graph
-svg.append("text")
-        .attr("x", 0)
-        .attr("y", -50)
-        .attr("text-anchor", "left")
-        .style("font-size", "22px")
-        .text("Correlation Heatmap for Top 10 Songs over time");
+// svg.append("text")
+//         .attr("x", 0)
+//         .attr("y", -50)
+//         .attr("text-anchor", "left")
+//         .style("font-size", "22px")
+//         .text("Correlation Heatmap for Top 10 Songs over time");
 
 // Add subtitle to graph
-svg.append("text")
-        .attr("x", 0)
-        .attr("y", -20)
-        .attr("text-anchor", "left")
-        .style("font-size", "14px")
-        .style("fill", "grey")
-        .style("max-width", 400)
-        .text("with values ranging from -1 to 1, 1 signifying a closer relation");
+// svg.append("text")
+//         .attr("x", 0)
+//         .attr("y", -20)
+//         .attr("text-anchor", "left")
+//         .style("font-size", "14px")
+//         .style("fill", "grey")
+//         .style("max-width", 400)
+//         .text("with values ranging from -1 to 1, 1 signifying a closer relation");
 
   // Legend 
 
