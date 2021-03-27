@@ -39,6 +39,12 @@
     font-size: 17px;
 }
 
+#hidden-text {
+    display: none;
+    color: white;
+}
+
+
 #box-terms-front {
     /* padding: 10px; */
     position: absolute;
