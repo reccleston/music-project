@@ -79,7 +79,7 @@ function makeResponsive() {
     };
 
     // event listener for click on button
-    d3.select('#trigger-chart').on('click', triggerChart);
+    d3.select('#trigger-bubble').on('click', triggerChart);
 
     // funct to fill dropdowns
     function dropdownFill(year_data, columns) {
