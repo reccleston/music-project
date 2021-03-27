@@ -66,6 +66,7 @@ function makeResponsive() {
 
     function triggerChart() {
         d3.event.preventDefault();
+        console.log('trigger chart triggered');
         // makes choice alert disappear again
         d3.select('#choice-alert').style('display', 'none');
         // setting up variables for entering into buildChart
