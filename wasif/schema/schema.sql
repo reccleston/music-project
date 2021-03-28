@@ -5,7 +5,9 @@ DROP TABLE IF EXISTS year_table;
 Create table data_cleaned (
 "title" VARCHAR NOT NULL,
 "artist" VARCHAR NOT NULL,
-"top genre" VARCHAR NOT NULL,
+"genre" VARCHAR NOT NULL,
+"genre_num" INT NOT NULL,
+"subgenre" VARCHAR NOT NULL,
 "year" INT NOT NULL,
 "bpm" NUMERIC NOT NULL,
 "nrgy" NUMERIC NOT NULL,
