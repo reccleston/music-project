@@ -1,5 +1,9 @@
 // path to csv
-var path = '../../../data/year.csv'
+// var path = '../../../data/year.csv'
+var url = "http://127.0.0.1:5000/bar";
+
+d3.json("url", function (json) {
+
 
 // Create empty arrays to store the factor values
 var year = [];
@@ -173,5 +177,4 @@ d3.csv(path).then(function(data) {
   buildChart(xValue, yValue);
 });
 
-
-
+});
