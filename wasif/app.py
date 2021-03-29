@@ -1,5 +1,5 @@
 from sqlalchemy import create_engine
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify, render_template, url_for
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 from sqlalchemy import inspect
@@ -9,7 +9,7 @@ import simplejson as json
 # Database Setup
 #################################################
 
-connection_string = "postgres:postgres@localhost:5432/music_project"
+connection_string = "postgres:sQLsdh1511@localhost:5433/music_project"
 engine = create_engine(f'postgresql://{connection_string}', echo=False)
 connection = engine.connect()
 
@@ -54,7 +54,7 @@ def sunbubblevalues():
             "bpm": row[6],
             "nrgy": row[7],
             "dnce": row[8],
-            "db": row[9],
+            "dB": row[9],
             "live": row[10],
             "val": row[11],
             "dur": row[12],
@@ -64,6 +64,7 @@ def sunbubblevalues():
         }
         data.append(my_dict)
         print(row)
+    data.append({'columns': ["title", "artist", "genre", "genre_num", "subgenre", "year", "bpm", "nrgy", "dnce", "dB", "live", "val", "dur", "acous", "spch", "pop"]})
     return(jsonify(data))
 
 @app.route('/heatmap')

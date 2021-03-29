@@ -85,8 +85,8 @@ function makeResponsive() {
     // funct to fill dropdowns
     function dropdownFill(year_data, columns) {
         // subsetting the col names
-        var cols_for_dd = columns.slice(6, columns.length+1);
-
+        var cols_for_dd = columns.slice(6, columns.length - 1);
+        
         // appending to dropdowns
         // defining dropdown variables
         var year_dropdown = d3.select('#year-dropdown').select('.dropdown-menu');
@@ -214,10 +214,11 @@ function makeResponsive() {
         Plotly.newPlot('bubble', data, layout, config);
     };
 
-    var path = 'static/data/data_cleaned.csv'
-    // var path = '127.0.0.1:8000/sunburstbubble'
+    // var path = 'static/data/data_cleaned.csv'
+    // var path = "{{ url_for('home', filename='sunbubblevalues') }}";
+    var path = '/sunburstbubble'
 
-    d3.csv(path).then(function(data) {
+    d3.json(path).then(function(data) {
         // changing types
         data.forEach(function(d) {
             d.genre_num = +d.genre_num;
@@ -238,7 +239,7 @@ function makeResponsive() {
         
         // sending to dropdown fill funct
         // getting the col names
-        var columns = data.columns;
+        var columns = data[603].columns;
         // making a unique list (set) of the years in the dataset
         var year_data = [...new Set(data.map(d => d.year))];
         dropdownFill(year_data, columns);
