@@ -9,7 +9,8 @@ var svg = d3.select("#heatmap-corr")
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv('data/corr_heatmap_vals.csv').then(data => {
+// d3.json('/').then(data => {
+d3.csv('static/data/corr_heatmap_vals.csv').then(data => {
     // Labels of row and columns -> unique identifier of the column called 'group' and 'variable'
   var myGroups = d3.map(data, function(d){return d.feat1;}).keys()
   var myVars = d3.map(data, function(d){return d.feat2;}).keys()
@@ -139,12 +140,10 @@ d3.csv('data/corr_heatmap_vals.csv').then(data => {
 
   var leg_mousemove = function(d) {
     tooltip
-      .html(`<p>This color represents an r-val of ${d} </p>`)
+      .html(`<p>This color represents an r-val of ${Math.round((d + Number.EPSILON) * 100) / 100}</p>`)
       .style("left", (d3.mouse(this)[0]) + "px")
       .style("top", (d3.mouse(this)[1]) + "px")
   };
-
-  // console.log(corr_range);
 
   legend_svg.selectAll('rect')
     .data(corr_range)
@@ -161,12 +160,4 @@ d3.csv('data/corr_heatmap_vals.csv').then(data => {
     .on("mouseover", mouseover)
     .on('mousemove', leg_mousemove)
     .on("mouseleave", mouseleave);
-
-
-
-
-
-    // console.log(corr_range);
-
-
 });

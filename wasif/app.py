@@ -1,5 +1,5 @@
 from sqlalchemy import create_engine
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify, render_template, url_for
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 from sqlalchemy import inspect
@@ -25,9 +25,23 @@ app = Flask(__name__)
 
 
 # Either we use float for the values or use the simplejson
+@app.route('/')
+def home():
+    return render_template("index.html")
+    # return """<html>
+    # <h1>Spotify Top Tracks App</h1>
+    # <p><strong>All Available Routes:</strong></p>
+    # <li>Sunburst and Bubble Chart Datasets: <a href="/sunburstbubble">/sunburstbubble</a></li>
+    # <br>
+    # <li>Heatmap Dataset: <a href="/heatmap">/heatmap</a></li>
+    # <br>
+    # <li>Bar Dataset: <a href="/bar">/bar</a></li>
+    # </html"""
+
 @app.route('/sunburstbubble')
 def sunbubblevalues():
     result = connection.execute("""SELECT * FROM data_cleaned;""")
+    print(result)
     data = []
     for row in result:
         my_dict = {
@@ -40,7 +54,7 @@ def sunbubblevalues():
             "bpm": row[6],
             "nrgy": row[7],
             "dnce": row[8],
-            "db": row[9],
+            "dB": row[9],
             "live": row[10],
             "val": row[11],
             "dur": row[12],
@@ -50,6 +64,7 @@ def sunbubblevalues():
         }
         data.append(my_dict)
         print(row)
+    data.append({'columns': ["title", "artist", "genre", "genre_num", "subgenre", "year", "bpm", "nrgy", "dnce", "dB", "live", "val", "dur", "acous", "spch", "pop"]})
     return(jsonify(data))
 
 @app.route('/heatmap')
