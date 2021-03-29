@@ -9,7 +9,7 @@ import simplejson as json
 # Database Setup
 #################################################
 
-connection_string = "postgres:posgres@localhost:5432/music_project"
+connection_string = "postgres:postgres@localhost:5432/music_project"
 engine = create_engine(f'postgresql://{connection_string}', echo=False)
 connection = engine.connect()
 
