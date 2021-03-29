@@ -46,7 +46,7 @@ function triggerChart() {
 };
 
 // event listener for click on button
-d3.select('#trigger-chart').on('click', triggerChart);
+d3.select('#trigger-bar').on('click', triggerChart);
 
 // dropdown menu append
 function dropdownFill(cols_list) {
