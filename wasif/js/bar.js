@@ -1,5 +1,5 @@
 // path to csv
-var path = '../data/year.csv'
+var path = 'http://127.0.0.1:5000/bar'
 
 // Create empty arrays to store the factor values
 var year = [];
