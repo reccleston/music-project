@@ -221,7 +221,7 @@ function makeResponsive() {
         // changing types
         data.forEach(function(d) {
             d.genre_num = +d.genre_num;
-            d.bpm = d.bpm;
+            d.bpm = +d.bpm;
             d.nrgy = +d.nrgy;
             d.dnce = +d.dnce;
             d.dB = +d.dB;
