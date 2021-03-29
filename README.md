@@ -1,7 +1,7 @@
 # Top Tracks Playspace
-### Team Members: Angeli, Sarah, Wasif, Ryan, Jini
+### Team Members: Sarah D. Hood, Jini Hassan, Ryan Eccleston-Murdock, Wasif Khan, and Angeli Lucila
 
-![Songs]()
+![Songs](https://github.com/reccleston/music-project/blob/main/wasif/static/img/concert.jpg)
 
 ## Dataset we used:
 - [Top Spotify Songs from 2010-2019 - Kaggle](https://www.kaggle.com/leonardopena/top-spotify-songs-from-20102019-by-year)
@@ -24,14 +24,15 @@
 This webpage displays information from a Kaggle dataset on the top songs (according to Billboard rankings) worldwide on Spotify between 2010 and 2019.
 
 We were inspired to work on this dataset because Spotify is a widely used streaming application, and drawing connections between different song qualities (here called "factors") seemed like an intriguing idea.
-<!-- 
+
 ## Folders Directory
-- [Wasif Folder](https://github.com/reccleston/music-project/tree/main/wasif) includes all relevant used for exploring, cleaning, and loading the data for each dataset separately 
-    * [Resources Folder](https://github.com/RH-cmd/ETL-Case-Study/tree/main/Transformation%20Center/Resources) contains the original datasets
-- [Entity Relationship Diagram](https://github.com/RH-cmd/ETL-Case-Study/blob/main/ERD.png) shows a visual of our table schema to load our data 
-![ERD](https://github.com/RH-cmd/ETL-Case-Study/blob/main/ERD.png)
-- [Merge and Upload Jupyter Notebook](https://github.com/RH-cmd/ETL-Case-Study/blob/main/merge_and_upload.ipynb) shows how we loaded the CSVs into Postgres using SQLalchemy. We used the jupyter notebook to test that our data loaded properly into the database. Then we used Postgres to merge and query our tables below.  
-- [Table Schema](https://github.com/RH-cmd/ETL-Case-Study/blob/main/table_schema.sql) created the tables in Postgres and [Queries SQL](https://github.com/RH-cmd/ETL-Case-Study/blob/main/queries.sql) merged our datasets using specific parameters. -->
+- [Wasif Folder](https://github.com/reccleston/music-project/tree/main/wasif) includes all relevant files for our website. Use this directory to view. 
+    * [App.py](https://github.com/reccleston/music-project/blob/main/wasif/app.py) contains the 
+    * []() contains the original datasets
+- [Angeli folder](hhttps://github.com/reccleston/music-project/tree/main/angeli) shows relevant files for the bar chart visualization. 
+- [Jini folder](https://github.com/reccleston/music-project/tree/main/jini) shows relevant files for the sunburst visualization. 
+- [Ryan folder](https://github.com/reccleston/music-project/tree/main/ryan) shows relevant files for the correlation heatmap visualization.
+- [Sarah folder](https://github.com/reccleston/music-project/tree/main/sarah) shows relevant files for the bubble chart visualization.
 
 
 
