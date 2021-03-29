@@ -1,6 +1,6 @@
 var margin = {top: 80, right: 25, bottom: 30, left: 40},
   width = 450 - margin.left - margin.right,
-  height = 450 - margin.top - margin.bottom
+  height = 450 - margin.top - margin.bottom;
 
 var svg = d3.select("#heatmap-corr")
     .append("svg")
@@ -105,7 +105,7 @@ svg.append("text")
         .attr("y", -50)
         .attr("text-anchor", "left")
         .style("font-size", "22px")
-        .text("Correlation Heatmap for Top 10 Songs over time");
+        .text("Factor Correlation Matrix!");
 
 // Add subtitle to graph
 svg.append("text")
@@ -121,41 +121,59 @@ svg.append("text")
 
   var legend_svg = d3.select('#heatmap-corr-legend').append('svg')
     .attr('width', 100)
-    .attr('height', 500)
+    .attr('height', 600)
     .append('g')
     .attr('width', 100)
     .attr('height', 500)
-    .attr('transfrom', 'translate(10,10)');
+    .attr('transfrom' ,`translate(0, ${margin.top + 10})`);
     
     // gen continuous range from -1 to 1 
     // use color scale to color 
     // and tooltip 
+    function round(num){
+      return Math.round((num + Number.EPSILON) * 100) / 100;
+    };
 
+    function partition(items, size) {
+      var result = _.groupBy(items, function(item, i) {
+          return Math.floor(i/size);
+      });
+      return _.values(result);
+  }
+
+    
   var fine_tune_gradient = 0.01;
   var corr_range = [];
   for (var i = -1; i < 1; i+=fine_tune_gradient) {
-    corr_range.push(i);
+    corr_range.push(round(i));
   };
 
+  var binned_corr_range = partition(corr_range, 40);
+  binned_corr_range.forEach(bin => bin.push(bins))
+  console.log(binned_corr_range);
+
   var leg_mousemove = function(d) {
+    // bin the values (5) 
+
     tooltip
-      .html(`<p>This color represents an r-val of ${d} </p>`)
+      .html(`<p>This color represents ${bin(d)} (r-val: ${round(d)})</p>`)
       .style("left", (d3.mouse(this)[0]) + "px")
-      .style("top", (d3.mouse(this)[1]) + "px")
+      .style("top", (d3.mouse(this)[1]) + "px");
   };
 
   // console.log(corr_range);
 
+  // get constants to vary with margin
   legend_svg.selectAll('rect')
     .data(corr_range)
     .enter()
     .append('rect')
     .attr('x', 0)
-    .attr('y', d =>  -300 * d)
-    .attr('rx', 4)
-    .attr('ry', 4)
+    .attr('y', d =>  -200 * d)
+    // .attr('rx', 4)
+    // .attr('ry', 4)
     .attr('width', 100)
-    .attr('height', 300)
+    .attr('height', 200)
     .attr('value', d => d)
     .style("fill", function(d) {return myColor(d)})
     .on("mouseover", mouseover)
