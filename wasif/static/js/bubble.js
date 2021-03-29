@@ -162,7 +162,12 @@ function makeResponsive() {
                 colorscale: 'Rainbow',
                 cmin: d3.min(genre_nums),
                 cmax: d3.max(genre_nums),
-                size: pop,
+                size: data_year_filter.map(function(d) {
+                    if (d.pop == 0) {
+                        // makes sure the song with the popularity of '0' shows up
+                        return 6;
+                    } else {return d.pop;}
+                }),
                 sizeref: 2,
                 sizemode: 'radius'
             },
@@ -210,6 +215,7 @@ function makeResponsive() {
     };
 
     var path = 'static/data/data_cleaned.csv'
+    // var path = '127.0.0.1:8000/sunburstbubble'
 
     d3.csv(path).then(function(data) {
         // changing types
