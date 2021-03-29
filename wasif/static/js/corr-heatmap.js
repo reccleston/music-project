@@ -1,3 +1,5 @@
+console.log("Hello World")
+
 var margin = {top: 80, right: 25, bottom: 30, left: 40},
   width = 450 - margin.left - margin.right,
   height = 450 - margin.top - margin.bottom
@@ -9,8 +11,8 @@ var svg = d3.select("#heatmap-corr")
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.json('/heatmap').then(data => {
-// d3.csv('data/corr_heatmap_vals.csv').then(data => {
+// d3.json('/').then(data => {
+d3.csv('data/corr_heatmap_vals.csv').then(data => {
     // Labels of row and columns -> unique identifier of the column called 'group' and 'variable'
   var myGroups = d3.map(data, function(d){return d.feat1;}).keys()
   var myVars = d3.map(data, function(d){return d.feat2;}).keys()

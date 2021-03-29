@@ -19,10 +19,14 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="static/css/flip_style.css">
+    <!-- <link rel="stylesheet" type="text/css" href="static/css/flip_style.css">
     <link rel="stylesheet" type="text/css" href="static/css/style_bubble.css">
     <link rel="stylesheet" type="text/css" href="static/css/styles.css">
-    <link rel="stylesheet" type="text/css" href="static/css/bar_style.css">
+    <link rel="stylesheet" type="text/css" href="static/css/bar_style.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/flip_style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_bubble.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bar_style.css') }}">
 </head>
 
 <body id="page-top">
@@ -147,7 +151,7 @@
                                         <p>Click on each slice to expand that segment.</p>
                                     </nl>
                                 </div>
-                            <iframe src="sunburst.html" style="width:675px; height: 540px;" frameBorder='0'></iframe>
+                            <iframe src=" {{ url_for('static', filename='html/sunburst.html') }} " style="width:675px; height: 540px;" frameBorder='0'></iframe>
                             <!-- end of card div -->
                             </div>
                         <!-- end of sunburst div -->
@@ -372,13 +376,15 @@
         crossorigin="anonymous"></script>
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script type="text/javascript" src="static/js/bubble.js"></script>
+    <!-- <script type="text/javascript" src="static/js/bubble.js"></script> -->
+    <script src="{{ url_for('static', filename='js/bubble.js') }}"></script>
 
     <script src="https://d3js.org/d3.v5.min.js"></script>
         <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>   
         <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>  
         <script type="text/csv" src='../data/data_cleaned.csv'></script> 
-		<script type="text/javascript" src="static/js/corr-heatmap.js"></script>
+        <script src="{{ url_for('static', filename='js/corr-heatmap.js') }}"></script>
+		<!-- <script type="text/javascript" src="static/js/corr-heatmap.js"></script> -->
 
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -386,11 +392,15 @@
                   
         <script src="https://d3js.org/d3.v5.min.js"></script>
         <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>      
-		<script type="text/javascript" src="static/js/bar.js"></script>
+		<!-- <script type="text/javascript" src="static/js/bar.js"></script> -->
+        <script src="{{ url_for('static', filename='js/bar.js') }}"></script>
 
         <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
         <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
-        <script type="text/javascript" src="static/js/flip.js"></script>
+        <!-- <script type="text/javascript" src="static/js/flip.js"></script> -->
+        <script src="{{ url_for('static', filename='js/flip.js') }}"></script>
+        <!-- <script src="{{ url_for('static', filename='js/bar.js') }}"></script> -->
+
 
 
 </body>
