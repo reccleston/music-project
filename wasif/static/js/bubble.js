@@ -3,14 +3,13 @@
 var click_dict = {'year': 2011, 'x': 'bpm', 'y': 'nrgy'};
 function makeResponsive() {
     // making chart width dependant on page width, height as a constant
-    var chartWidth = window.innerWidth * 5/6;
-    var chartHeight = 700;
+    var chartWidth = window.innerWidth * 7/8;
+    var chartHeight = 600;
 
     // dict to change abbreviations to full words
     var label_dict = {
         bpm: 'Beats Per Minute',
         nrgy: 'Energy',
-        live: 'Liveness',
         dnce: 'Danceability',
         dB: 'Decibels',
         val: 'Valence',
@@ -67,7 +66,6 @@ function makeResponsive() {
 
     function triggerChart() {
         d3.event.preventDefault();
-        // console.log('trigger chart triggered');
         // makes choice alert disappear again
         d3.select('#choice-alert').style('display', 'none');
         // setting up variables for entering into buildChart
@@ -77,16 +75,18 @@ function makeResponsive() {
         var data = click_dict['data'];
         // calling the funct
         buildChart(new_year, new_x, new_y, data);
+        console.log('click dict when chart is triggered');
+        console.log(click_dict);
     };
 
     // event listener for click on button
-    d3.select('#trigger-bubble').on('click', triggerChart);
+    d3.select('#trigger-chart').on('click', triggerChart);
 
     // funct to fill dropdowns
     function dropdownFill(year_data, columns) {
         // subsetting the col names
-        var cols_for_dd = columns.slice(6, columns.length - 1);
-        
+        var cols_for_dd = columns.slice(6, columns.length+1);
+
         // appending to dropdowns
         // defining dropdown variables
         var year_dropdown = d3.select('#year-dropdown').select('.dropdown-menu');
@@ -162,12 +162,7 @@ function makeResponsive() {
                 colorscale: 'Rainbow',
                 cmin: d3.min(genre_nums),
                 cmax: d3.max(genre_nums),
-                size: data_year_filter.map(function(d) {
-                    if (d.pop == 0) {
-                        // makes sure the song with the popularity of '0' shows up
-                        return 6;
-                    } else {return d.pop;}
-                }),
+                size: pop,
                 sizeref: 2,
                 sizemode: 'radius'
             },
@@ -214,8 +209,6 @@ function makeResponsive() {
         Plotly.newPlot('bubble', data, layout, config);
     };
 
-    // var path = 'static/data/data_cleaned.csv'
-    // var path = "{{ url_for('home', filename='sunbubblevalues') }}";
     var path = '/sunburstbubble'
 
     d3.json(path).then(function(data) {
