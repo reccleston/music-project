@@ -29,7 +29,7 @@ We were inspired to work on this dataset because Spotify is a widely used stream
 - [Wasif Folder](https://github.com/reccleston/music-project/tree/main/wasif) includes all relevant files for our website. Use this directory to view. 
     * [App.py](https://github.com/reccleston/music-project/blob/main/wasif/app.py) contains the 
     * [static folder](https://github.com/reccleston/music-project/tree/main/wasif/static) contains all the javascript/css files for the visualizations
-    * [schema folder]()
+    * [schema folder](https://github.com/reccleston/music-project/tree/main/wasif/schema) contains the schema for the database. 
 - [Angeli folder](https://github.com/reccleston/music-project/tree/main/angeli) shows relevant files for the bar chart visualization. 
 - [Jini folder](https://github.com/reccleston/music-project/tree/main/jini) shows relevant files for the sunburst visualization. 
 - [Ryan folder](https://github.com/reccleston/music-project/tree/main/ryan) shows relevant files for the correlation heatmap visualization.
