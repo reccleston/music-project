@@ -28,11 +28,20 @@ We were inspired to work on this dataset because Spotify is a widely used stream
 ## Folders Directory
 - [Wasif Folder](https://github.com/reccleston/music-project/tree/main/wasif) includes all relevant files for our website. Use this directory to view. 
     * [App.py](https://github.com/reccleston/music-project/blob/main/wasif/app.py) contains the 
-    * []() contains the original datasets
-- [Angeli folder](hhttps://github.com/reccleston/music-project/tree/main/angeli) shows relevant files for the bar chart visualization. 
+    * [static folder](https://github.com/reccleston/music-project/tree/main/wasif/static) contains all the javascript/css files for the visualizations
+    * [schema folder]()
+- [Angeli folder](https://github.com/reccleston/music-project/tree/main/angeli) shows relevant files for the bar chart visualization. 
 - [Jini folder](https://github.com/reccleston/music-project/tree/main/jini) shows relevant files for the sunburst visualization. 
 - [Ryan folder](https://github.com/reccleston/music-project/tree/main/ryan) shows relevant files for the correlation heatmap visualization.
 - [Sarah folder](https://github.com/reccleston/music-project/tree/main/sarah) shows relevant files for the bubble chart visualization.
+
+## How To Create The Database On Your Computer
+1. Open pgAdmin and create a database called "music_project". 
+2. Use the [schema file](https://github.com/reccleston/music-project/blob/main/wasif/schema/schema.sql) to create the tables. 
+3. Import ["data_cleaned.csv"] (https://github.com/reccleston/music-project/blob/main/wasif/static/data/data_cleaned.csv) to the "data_cleaned" table. 
+4. Import ["corr_heatmap_vals.csv"] (https://github.com/reccleston/music-project/blob/main/wasif/static/data/corr_heatmap_vals.csv) to the "corr_heatmap_vals" table. 
+5. Import ["year.csv"] (https://github.com/reccleston/music-project/blob/main/wasif/static/data/year.csv) to the "year_table" table. 
+6. Ensure that you modify your pgAdmin credentials in the variable "connection_string" in the [app.py](https://github.com/reccleston/music-project/blob/main/wasif/app.py) file. 
 
 
 
