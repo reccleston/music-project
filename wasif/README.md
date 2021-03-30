@@ -1,65 +1,47 @@
-# [Start Bootstrap - SB Admin 2](https://startbootstrap.com/theme/sb-admin-2/)
+# Top Tracks Playspace
+### Team Members: Sarah D. Hood, Jini Hassan, Ryan Eccleston-Murdock, Wasif Khan, and Angeli Lucila
 
-[SB Admin 2](https://startbootstrap.com/theme/sb-admin-2/) is an open source admin dashboard theme for [Bootstrap](https://getbootstrap.com/) created by [Start Bootstrap](https://startbootstrap.com/).
+![Songs](https://github.com/reccleston/music-project/blob/main/wasif/static/img/concert.jpg)
 
-For the legacy Bootstrap 3 version of this theme, you can view the [last stable release](https://github.com/StartBootstrap/startbootstrap-sb-admin-2/releases/tag/v3.3.7%2B1) of SB Admin 2 for Bootstrap 3.
+## Dataset we used:
+- [Top Spotify Songs from 2010-2019 - Kaggle](https://www.kaggle.com/leonardopena/top-spotify-songs-from-20102019-by-year)
+    * Context: The top songs BY YEAR in the world by spotify. This dataset has several variables about the songs and is based on Billboard
+    * Content: There are the most popular songs in the world by year and 13 variables to be explored. Data were stracted from: http://organizeyourmusic.playlistmachinery.com/
+    * Variables Measured:
+        - Popularity/pop: how popular a song is. The higher the number, the more popular it is.
+        - Speechiness/spch: how much spoken word is in the track.
+        - Acoustic-ness/acous: how acoustic the song is.
+        - Duration/dur: how long the track is (in seconds).
+        - Valence/val: how positive the track is.
+        - Liveness/live: how likely it is for the track to be a live recording.
+        - Decibels/dB: how loud the track is.
+        - Danceability/dnce: how easy it is to dance to the song.
+        - Energy/nrgy: how energetic the song is.
+        - Beats Per Minute/bpm: how many beats per minute, or, the track’s tempo.
 
-## Preview
 
-[![SB Admin 2 Preview](https://assets.startbootstrap.com/img/screenshots/themes/sb-admin-2.png)](https://startbootstrap.github.io/startbootstrap-sb-admin-2/)
+## Summary and Motivation:
+This webpage displays information from a Kaggle dataset on the top songs (according to Billboard rankings) worldwide on Spotify between 2010 and 2019.
 
-**[Launch Live Preview](https://startbootstrap.github.io/startbootstrap-sb-admin-2/)**
+We were inspired to work on this dataset because Spotify is a widely used streaming application, and drawing connections between different song qualities (here called "factors") seemed like an intriguing idea.
 
-## Status
+## Folders Directory
+- [Wasif Folder](https://github.com/reccleston/music-project/tree/main/wasif) includes all relevant files for our website. Use this directory to view. 
+    * [App.py](https://github.com/reccleston/music-project/blob/main/wasif/app.py) contains the flask app that you will launch to view our website. 
+    * [static folder](https://github.com/reccleston/music-project/tree/main/wasif/static) contains all the javascript/css files for the visualizations
+    * [schema folder](https://github.com/reccleston/music-project/tree/main/wasif/schema) contains the schema for the database. 
+- [Angeli folder](https://github.com/reccleston/music-project/tree/main/angeli) shows relevant files for the bar chart visualization. 
+- [Jini folder](https://github.com/reccleston/music-project/tree/main/jini) shows relevant files for the sunburst visualization. 
+- [Ryan folder](https://github.com/reccleston/music-project/tree/main/ryan) shows relevant files for the correlation heatmap visualization.
+- [Sarah folder](https://github.com/reccleston/music-project/tree/main/sarah) shows relevant files for the bubble chart visualization.
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/StartBootstrap/startbootstrap-sb-admin-2/master/LICENSE)
-[![npm version](https://img.shields.io/npm/v/startbootstrap-sb-admin-2.svg)](https://www.npmjs.com/package/startbootstrap-sb-admin-2)
-[![Build Status](https://travis-ci.org/StartBootstrap/startbootstrap-sb-admin-2.svg?branch=master)](https://travis-ci.org/StartBootstrap/startbootstrap-sb-admin-2)
-[![dependencies Status](https://david-dm.org/StartBootstrap/startbootstrap-sb-admin-2/status.svg)](https://david-dm.org/StartBootstrap/startbootstrap-sb-admin-2)
-[![devDependencies Status](https://david-dm.org/StartBootstrap/startbootstrap-sb-admin-2/dev-status.svg)](https://david-dm.org/StartBootstrap/startbootstrap-sb-admin-2?type=dev)
+## How To Create The Database On Your Computer
+1. Open pgAdmin and create a database called "music_project". 
+2. Use the [schema file](https://github.com/reccleston/music-project/blob/main/wasif/schema/schema.sql) to create the tables. 
+3. Import ["data_cleaned.csv"] (https://github.com/reccleston/music-project/blob/main/wasif/static/data/data_cleaned.csv) to the "data_cleaned" table. 
+4. Import ["corr_heatmap_vals.csv"] (https://github.com/reccleston/music-project/blob/main/wasif/static/data/corr_heatmap_vals.csv) to the "corr_heatmap_vals" table. 
+5. Import ["year.csv"] (https://github.com/reccleston/music-project/blob/main/wasif/static/data/year.csv) to the "year_table" table. 
+6. Ensure that you modify your pgAdmin credentials in the variable "connection_string" in the [app.py](https://github.com/reccleston/music-project/blob/main/wasif/app.py) file. 
 
-## Download and Installation
 
-To begin using this template, choose one of the following options to get started:
 
-* [Download the latest release on Start Bootstrap](https://startbootstrap.com/theme/sb-admin-2/)
-* Install via npm: `npm i startbootstrap-sb-admin-2`
-* Clone the repo: `git clone https://github.com/StartBootstrap/startbootstrap-sb-admin-2.git`
-* [Fork, Clone, or Download on GitHub](https://github.com/StartBootstrap/startbootstrap-sb-admin-2)
-
-## Usage
-
-After installation, run `npm install` and then run `npm start` which will open up a preview of the template in your default browser, watch for changes to core template files, and live reload the browser when changes are saved. You can view the `gulpfile.js` to see which tasks are included with the dev environment.
-
-### Gulp Tasks
-
-* `gulp` the default task that builds everything
-* `gulp watch` browserSync opens the project in your default browser and live reloads when changes are made
-* `gulp css` compiles SCSS files into CSS and minifies the compiled CSS
-* `gulp js` minifies the themes JS file
-* `gulp vendor` copies dependencies from node_modules to the vendor directory
-
-You must have npm installed globally in order to use this build environment. This theme was built using node v11.6.0 and the Gulp CLI v2.0.1. If Gulp is not running properly after running `npm install`, you may need to update node and/or the Gulp CLI locally.
-
-## Bugs and Issues
-
-Have a bug or an issue with this template? [Open a new issue](https://github.com/StartBootstrap/startbootstrap-sb-admin-2/issues) here on GitHub or leave a comment on the [template overview page at Start Bootstrap](https://startbootstrap.com/theme/sb-admin-2/).
-
-## About
-
-Start Bootstrap is an open source library of free Bootstrap templates and themes. All of the free templates and themes on Start Bootstrap are released under the MIT license, which means you can use them for any purpose, even for commercial projects.
-
-* <https://startbootstrap.com>
-* <https://twitter.com/SBootstrap>
-
-Start Bootstrap was created by and is maintained by **[David Miller](https://davidmiller.io/)**.
-
-* <https://davidmiller.io>
-* <https://twitter.com/davidmillerhere>
-* <https://github.com/davidtmiller>
-
-Start Bootstrap is based on the [Bootstrap](https://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
-
-## Copyright and License
-
-Copyright 2013-2020 Start Bootstrap LLC. Code released under the [MIT](https://github.com/StartBootstrap/startbootstrap-resume/blob/gh-pages/LICENSE) license.
