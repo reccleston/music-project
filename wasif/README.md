@@ -6,7 +6,7 @@
 ## Dataset we used:
 - [Top Spotify Songs from 2010-2019 - Kaggle](https://www.kaggle.com/leonardopena/top-spotify-songs-from-20102019-by-year)
     * Context: The top songs BY YEAR in the world by spotify. This dataset has several variables about the songs and is based on Billboard
-    * Content: There are the most popular songs in the world by year and 13 variables to be explored. Data were stracted from: http://organizeyourmusic.playlistmachinery.com/
+    * Content: There are the most popular songs in the world by year and 13 variables to be explored. Data was extracted from: http://organizeyourmusic.playlistmachinery.com/
     * Variables Measured:
         - Popularity/pop: how popular a song is. The higher the number, the more popular it is.
         - Speechiness/spch: how much spoken word is in the track.
@@ -43,5 +43,8 @@ We were inspired to work on this dataset because Spotify is a widely used stream
 5. Import [year.csv](https://github.com/reccleston/music-project/blob/main/wasif/static/data/year.csv) to the "year_table" table. 
 6. Ensure that you modify your pgAdmin credentials in the variable "connection_string" in the [app.py](https://github.com/reccleston/music-project/blob/main/wasif/app.py) file. 
 
-
-
+## Key Takeaways
+* **Correlation Heatmap:** The three strongest positive correlations found are between decibels and energy (0.538), valence and danceability (0.502), and valence and energy (0.41). The strongest negative correlation was between acousticness and energy (-0.562).
+* **Sunburst:** The pop genre is always 'popular', making up 80% of the top tracks.
+* **Bubble Chart:** 2013 marks the year where a greater variety of genres start appearing within the top tracks.
+* **Bar Chart:** 2013 and 2015 tracks are high in positivity (valence), danceability and energy. They also seem to be years with the most popular tracks. Meanwhile 2012 and 2019 mark a downturn in all these factors.
