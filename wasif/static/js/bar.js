@@ -1,124 +1,15 @@
-<<<<<<< HEAD
-// path to csv
-// var path = '../../../data/year.csv'
-var url = "http://127.0.0.1:5000/bar";
-
-d3.json("url", function (json) {
-
-
-// Create empty arrays to store the factor values
-var year = [];
-var dance = [];
-var energy = [];
-var valance = [];
-var popularity = [];
-
-// list for the dropdown
-var cols_list = ['danceability', 'energy', 'valance', 'popularity'];
-// dictionary to retrive lists from based on dropdown
-var col_dict = {
-  'year': year,
-  'danceability': dance,
-  'energy': energy,
-  'valance': valance,
-  'popularity': popularity
-};
-// defining factors for x and y axes
-var xValue, yValue;
-
-// functions -------------------------------------------------------------------------
-// response when user chooses from the dropdown
-function factorReact() {
-  d3.event.preventDefault();
-  // update yvalue based on dropdown chosen text
-  yValue = d3.select(this).text();  
-  // adding to nav display
-  // select the ids
-  d3.select('#factor-choice-label').style('display', 'inline-block');
-  // select the y-axis element, change style and text
-  var factor_text = d3.select('#factor-choice-text');
-  factor_text.style('display', 'inline-block');
-  factor_text.select('a').text(`${yValue}`);
-};
-// response when user clicks the button
-function triggerChart() {
-  d3.event.preventDefault();
-  // makes choice alert disappear again
-  d3.select('#factor-choice-label').style('display', 'none');
-  d3.select('#factor-choice-text').style('display', 'none');
-  // calling the funct to make the chart
-  buildChart(xValue, yValue);
-};
-
-// event listener for click on button
-d3.select('#trigger-bar').on('click', triggerChart);
-
-// dropdown menu append
-function dropdownFill(cols_list) {
-  // appending to dropdown
-  // defining dropdown variable
-  var factor_dropdown = d3.select('#factor-dropdown').select('.dropdown-menu');
-
-  // getting rid of any existing dropdown items
-  factor_dropdown.text('');
-  
-  // appending factors
-  cols_list.forEach(col => {
-      factor_dropdown.append('a').attr('class', 'dropdown-item')
-          .attr('href', '#').attr('value', `${col}`).text(col).on('click', factorReact);
-  });
-};
-
-// function to choose bar colour based on column
-function varcolor(yValue) {
-  switch(yValue) {
-    case 'dance':
-        return 'rgb(0, 0, 255)';
-    case 'energy':
-        return 'rgb(60, 179, 113)';
-    case 'valance':
-        return 'rgb(255, 165, 0)';
-    case 'popularity':
-        return 'rgb(238, 130, 238)';
-    default:
-          return 'rgb(0, 0, 255)';
-
-}};
-
-// function to build chart
-function buildChart(xValue, yValue) {
-  var trace1 = {
-    // xValue and yValue are strings -- plug them into the dict to get the actual lists
-    x: col_dict[xValue],
-    y: col_dict[yValue],
-    type: 'bar',
-    text: col_dict[yValue].map(String),
-    textposition: 'auto',
-    hoverinfo: 'none',
-    marker: {
-      color: varcolor(yValue),
-      opacity: 0.6,
-      line: {
-        color: varcolor(yValue),
-        width: 1.5
-      }
-    }
-=======
 function makeResponsive() {  
   // path to csv
   var path = '/bar'
-
   // making chart width dependant on page width, height as a constant
   var chartWidth = window.innerWidth * 7/8;
   var chartHeight = 500;
-
   // Create empty arrays to store the factor values
   var year = [];
   var dance = [];
   var energy = [];
   var valance = [];
   var popularity = [];
-
   // list for the dropdown
   var cols_list = ['danceability', 'energy', 'valance', 'popularity'];
   // dictionary to retrive lists from based on dropdown
@@ -128,11 +19,9 @@ function makeResponsive() {
     'energy': energy,
     'valance': valance,
     'popularity': popularity
->>>>>>> fbd5839c5bba32e5bf6b795c4ecd4c1749a1ccab
   };
   // defining factors for x and y axes
   var xValue, yValue;
-
   // functions -------------------------------------------------------------------------
   // response when user chooses from the dropdown
   function factorReact() {
@@ -156,29 +45,21 @@ function makeResponsive() {
     // calling the funct to make the chart
     buildChart(xValue, yValue);
   };
-
   // event listener for click on button
   d3.select('#trigger-bar').on('click', triggerChart);
-
   // dropdown menu append
   function dropdownFill(cols_list) {
     // appending to dropdown
     // defining dropdown variable
     var factor_dropdown = d3.select('#factor-dropdown').select('.dropdown-menu');
-
     // getting rid of any existing dropdown items
     factor_dropdown.text('');
-
     // appending factors
     cols_list.forEach(col => {
         factor_dropdown.append('a').attr('class', 'dropdown-item')
             .attr('href', '#').attr('value', `${col}`).text(col).on('click', factorReact);
     });
   };
-
-<<<<<<< HEAD
-});
-=======
   // function to choose bar colour based on column
   function varcolor(yValue) {
     switch(yValue) {
@@ -192,9 +73,7 @@ function makeResponsive() {
           return 'rgb(238, 130, 238)';
       default:
             return 'rgb(0, 0, 255)';
-
   }};
-
   // function to build chart
   function buildChart(xValue, yValue) {
     var trace1 = {
@@ -214,9 +93,7 @@ function makeResponsive() {
         }
       }
     };
-
     var data = [trace1];
-
     var layout = {
       autosize: false,
       width: chartWidth,
@@ -231,14 +108,10 @@ function makeResponsive() {
       },
       yaxis: {title: `${yValue}`}
     };
-
     Plotly.newPlot('bar', data, layout);
-
   };
-
   // reading in the data and calling initial functs --------------------------------------------------------
   d3.json(path).then(function(data) {
-
    // changing types
    data.forEach(function(d) {
       d.year = +d.year;
@@ -247,10 +120,8 @@ function makeResponsive() {
       d.val = d.val;
       d.pop = d.pop;
     })
-
     // Iterate through to extract the data to lists
     data.forEach((x) => {
-
       // Iterate through each key and value
       Object.entries(x).forEach(([key, value]) => {
       
@@ -294,4 +165,3 @@ function makeResponsive() {
 makeResponsive();
 // event listener for resizing graphs
 d3.select(window).on('resize', makeResponsive);
->>>>>>> fbd5839c5bba32e5bf6b795c4ecd4c1749a1ccab
